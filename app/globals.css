@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+  --color-ink: #0f1b33;
+  --color-ink-soft: #1c2c4a;
+  --color-paper: #f7f4ec;
+  --color-paper-dim: #efe9db;
+  --color-gold: #c9962c;
+  --color-gold-soft: #e4c583;
+  --color-teal: #14524a;
+  --color-teal-soft: #cfe3df;
+  --color-text: #16181d;
+  --color-text-muted: #52586a;
+  --color-line: rgba(15, 27, 51, 0.12);
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-paper: var(--color-paper);
+  --color-paper-dim: var(--color-paper-dim);
+  --color-gold: var(--color-gold);
+  --color-gold-soft: var(--color-gold-soft);
+  --color-teal: var(--color-teal);
+  --color-teal-soft: var(--color-teal-soft);
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+  --color-line: var(--color-line);
+  --font-display: var(--font-fraunces);
+  --font-body: var(--font-manrope);
+  --font-mono: var(--font-plex-mono);
+}
+
+* {
+  border-color: var(--color-line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-text);
+  font-family: var(--font-body), sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), monospace;
+}
+
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--color-gold);
+}
+
+.paper-texture {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(15, 27, 51, 0.06) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--color-gold-soft);
+  color: var(--color-ink);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
