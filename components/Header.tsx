@@ -30,7 +30,7 @@ export default function Header() {
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-           <div className="h-12 w-12 transition-transform duration-900 group-hover:scale-105">
+           <div className="h-17 w-20 transition-transform duration-900 group-hover:scale-105">
   <Image
     src="/vidilogo.png"
     alt="Vidi Meth Logo"

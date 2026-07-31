@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Mail, Clock, MapPin } from "lucide-react";
 import { company, nav, quickLinks } from "@/data/content";
+import Image from "next/image";
+
 
 export default function Footer() {
   return (
@@ -9,9 +11,14 @@ export default function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.3fr_0.8fr_0.8fr_1fr]">
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gold text-ink font-display text-lg">
-                VM
-              </span>
+              <Image
+                src="/vidilogo.png"
+                alt="Vidi Meth Logo"
+                width={90}
+                height={90}
+                className="object-contain"
+                priority
+              />
               <span className="font-display text-lg">Vidi Meth</span>
             </div>
             <p className="text-sm text-paper/70 leading-relaxed max-w-sm">
@@ -31,7 +38,7 @@ export default function Footer() {
               ))}
               <li>
                 <a href="#" className="hover:text-gold-soft transition-colors">
-                  Career
+                  {/* Career */}
                 </a>
               </li>
             </ul>
