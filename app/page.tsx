@@ -2,6 +2,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useSpring,
+} from "framer-motion";
+import type { MouseEvent } from "react";
+import {
   ArrowRight,
   Network,
   HeartHandshake,
@@ -314,40 +321,65 @@ function ScannerCard() {
 }
 
 export default function Home() {
+  const cursorX = useMotionValue(520);
+  const cursorY = useMotionValue(240);
+  const smoothX = useSpring(cursorX, { stiffness: 140, damping: 28, mass: 0.35 });
+  const smoothY = useSpring(cursorY, { stiffness: 140, damping: 28, mass: 0.35 });
+  const heroSpotlight = useMotionTemplate`radial-gradient(420px circle at ${smoothX}px ${smoothY}px, rgba(228,197,131,0.28), rgba(20,82,74,0.1) 38%, transparent 72%)`;
+
+  function handleHeroPointerMove(event: MouseEvent<HTMLElement>) {
+    const bounds = event.currentTarget.getBoundingClientRect();
+    cursorX.set(event.clientX - bounds.left);
+    cursorY.set(event.clientY - bounds.top);
+  }
+
   return (
     <div className="w-full overflow-hidden">
       {/* HERO */}
-      <section className="relative overflow-hidden border-b border-line paper-texture">
+      <section
+        onMouseMove={handleHeroPointerMove}
+        className="relative overflow-hidden border-b border-line bg-paper"
+      >
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-40 right-[-10%] h-[300px] sm:h-[520px] w-[300px] sm:w-[520px] rounded-full bg-teal/10 blur-3xl"
+          className="absolute inset-0 paper-texture"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute bottom-[-15%] left-[-10%] h-[250px] sm:h-[420px] w-[250px] sm:w-[420px] rounded-full bg-gold/10 blur-3xl"
+          className="pointer-events-none absolute right-0 top-0 h-full w-full bg-[radial-gradient(circle_at_82%_22%,rgba(20,82,74,0.16),transparent_34%),radial-gradient(circle_at_8%_88%,rgba(201,150,44,0.14),transparent_32%)]"
+        />
+        <motion.div
+          aria-hidden
+          style={{ background: heroSpotlight }}
+          className="pointer-events-none absolute inset-0 hidden md:block"
+        />
+        <motion.div
+          aria-hidden
+          style={{ x: smoothX, y: smoothY }}
+          className="pointer-events-none absolute z-10 hidden h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border border-gold/70 bg-paper/80 shadow-[0_0_34px_rgba(201,150,44,0.45)] md:block"
         />
 
-        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-28 grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center">
-          <div>
+        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-20 xl:gap-14">
+          <div className="max-w-2xl">
             <Reveal>
-              <p className="eyebrow mb-4 sm:mb-6 inline-flex items-center gap-2 text-xs sm:text-sm">
+              <p className="eyebrow mb-4 inline-flex items-center gap-2 text-xs sm:text-sm">
                 <Sparkles size={14} className="text-gold" />
                 Vidi Meth Digital Services (OPC) Pvt. Ltd.
               </p>
             </Reveal>
             <Reveal delay={0.08}>
-              <h1 className="font-display text-3xl sm:text-5xl lg:text-[3.4rem] leading-[1.12] sm:leading-[1.08] text-ink text-balance">
-                One company, five networks —{" "}
-                <span className="text-teal">built to grow Indian business.</span>
+              <h1 className="font-display text-4xl leading-[1.08] text-ink text-balance sm:text-5xl lg:text-[4rem]">
+                One company. Five networks.{" "}
+                <span className="text-teal">Growth made visible.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.16}>
-              <p className="mt-4 sm:mt-6 text-base sm:text-lg text-text-muted leading-relaxed max-w-xl">
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-text-muted sm:text-lg">
                 {company.mission}
               </p>
             </Reveal>
             <Reveal delay={0.24}>
-              <div className="mt-7 sm:mt-9 flex flex-wrap items-center gap-3 sm:gap-4">
+              <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
                 <Link
                   href="/about"
                   className="group inline-flex items-center gap-2 rounded-full bg-ink px-5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-paper shadow-sm transition-all duration-300 hover:bg-teal hover:gap-3 hover:shadow-lg hover:shadow-teal/20"
@@ -372,8 +404,19 @@ export default function Home() {
           </div>
 
           <Reveal delay={0.2} y={16}>
-            <div className="w-full flex justify-center">
-              <NetworkOrbit />
+            <div className="relative mx-auto flex min-h-[420px] w-full max-w-[700px] items-center justify-center sm:min-h-[560px] lg:min-h-[620px]">
+              <div className="absolute inset-0 rounded-[2rem] border border-line bg-white/45 shadow-2xl shadow-ink/10 backdrop-blur-sm" />
+              <div
+                aria-hidden
+                className="absolute inset-5 rounded-[1.5rem] bg-[linear-gradient(135deg,rgba(15,27,51,0.06),rgba(20,82,74,0.13)),radial-gradient(circle_at_72%_20%,rgba(228,197,131,0.55),transparent_30%)]"
+              />
+              <div
+                aria-hidden
+                className="absolute left-8 top-8 h-24 w-24 rounded-full border border-gold/40 bg-gold/10"
+              />
+              <div className="relative z-10 w-[118%] max-w-[760px] p-2 sm:w-[112%] lg:w-[118%]">
+                <NetworkOrbit />
+              </div>
             </div>
           </Reveal>
         </div>
@@ -461,76 +504,99 @@ export default function Home() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-        <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-14 items-center">
-          <Reveal>
-            <div className="relative aspect-[16/10] sm:aspect-[4/3] lg:aspect-[4/5] w-full overflow-hidden rounded-2xl border border-line shadow-sm">
-              <Image
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80"
-                alt="Team reviewing strategy and growth plans together in a modern office"
-                fill
-                sizes="(min-width: 1024px) 40vw, 100vw"
-                className="object-cover"
-                priority={false}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/25 via-transparent to-transparent" />
+      <section className="border-y border-line bg-white/45">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+          <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-12 lg:items-center">
+            <div>
+              <Reveal>
+                <p className="eyebrow mb-3 sm:mb-4">Why choose us</p>
+                <h2 className="font-display text-3xl leading-tight text-ink sm:text-4xl lg:text-5xl">
+                  Businesses depend on us for expertise, quality, and service.
+                </h2>
+                <p className="mt-5 text-sm leading-7 text-text-muted sm:text-base">
+                  We&apos;ve worked with colleges and universities, real estate organisations,
+                  companies, designers, architects, government agencies, and business owners across
+                  a range of industries to transform the way they work.
+                </p>
+              </Reveal>
+
+              <Reveal delay={0.08}>
+                <div className="mt-8 grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-line bg-line">
+                  {[
+                    ["50+", "Organisations"],
+                    ["5+", "Networks"],
+                    ["24h", "Response"],
+                  ].map(([value, label]) => (
+                    <div key={label} className="bg-paper px-4 py-5 text-center">
+                      <p className="font-display text-3xl text-ink">{value}</p>
+                      <p className="mt-1 text-xs font-semibold text-text-muted">{label}</p>
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+            </div>
+
+            <Reveal delay={0.08}>
+              <div className="relative">
+                <div className="absolute -inset-3 rounded-[1.75rem] bg-teal/10" />
+                <div className="relative aspect-video w-full overflow-hidden rounded-[1.5rem] border border-line bg-paper shadow-2xl shadow-ink/15">
+                  <Image
+                    src="/whychooseus.png"
+                    alt="Vidi Meth Digital Services team and business growth visual"
+                    fill
+                    sizes="(min-width: 1024px) 58vw, 100vw"
+                    className="object-cover"
+                    priority={false}
+                  />
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {whyChooseUs.map((w, i) => (
+              <Reveal key={w.title} delay={0.035 * i}>
+                <div className="h-full rounded-xl border border-line bg-paper p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/60 hover:shadow-lg hover:shadow-ink/5">
+                  <h3 className="font-display text-lg text-ink">{w.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-text-muted">{w.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={0.1}>
+            <div className="mt-12 rounded-2xl border border-line bg-paper-dim/60 p-5 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-x-10">
+              <span className="eyebrow shrink-0">Trusted by</span>
+              <div className="flex flex-wrap gap-x-6 sm:gap-x-8 gap-y-2 text-xs sm:text-sm text-text-muted font-medium">
+                {clients.map((c) => (
+                  <span key={c} className="transition-colors duration-300 hover:text-ink">
+                    {c}
+                  </span>
+                ))}
+              </div>
             </div>
           </Reveal>
-
-          <div>
-            <Reveal>
-              <p className="eyebrow mb-3 sm:mb-4">Why choose us</p>
-              <h2 className="font-display text-2xl sm:text-4xl text-ink leading-tight">
-                Businesses depend on us for expertise, quality, and service.
-              </h2>
-              <p className="mt-4 sm:mt-5 text-sm sm:text-base text-text-muted leading-relaxed">
-                We&apos;ve worked with colleges and universities, real estate organisations,
-                companies, designers, architects, government agencies, and business owners
-                across a range of industries to transform the way they work.
-              </p>
-            </Reveal>
-
-            <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5 sm:gap-y-7">
-              {whyChooseUs.map((w, i) => (
-                <Reveal key={w.title} delay={0.04 * i}>
-                  <div className="border-l-2 border-gold pl-4 sm:pl-5 transition-colors duration-300 hover:border-teal">
-                    <h3 className="font-display text-base sm:text-lg text-ink">{w.title}</h3>
-                    <p className="mt-1 sm:mt-1.5 text-xs sm:text-sm text-text-muted leading-relaxed">{w.body}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
         </div>
-
-        <Reveal delay={0.1}>
-          <div className="mt-12 sm:mt-16 rounded-2xl border border-line bg-paper-dim/60 p-5 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-x-10">
-            <span className="eyebrow shrink-0">Trusted by</span>
-            <div className="flex flex-wrap gap-x-6 sm:gap-x-8 gap-y-2 text-xs sm:text-sm text-text-muted font-medium">
-              {clients.map((c) => (
-                <span key={c} className="transition-colors duration-300 hover:text-ink">
-                  {c}
-                </span>
-              ))}
-            </div>
-          </div>
-        </Reveal>
       </section>
 
       {/* DIVISIONS PREVIEW */}
       <section className="border-y border-line bg-paper-dim/50">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
+          <div className="mb-10 flex flex-col gap-5 sm:mb-14 lg:flex-row lg:items-end lg:justify-between">
             <Reveal>
               <p className="eyebrow mb-3 sm:mb-4">Facilitating global business networks</p>
-              <h2 className="font-display text-2xl sm:text-4xl text-ink leading-tight max-w-xl">
-                We highly value the collaborative relationships with our partners.
+              <h2 className="font-display text-3xl leading-tight text-ink sm:text-5xl lg:text-[3.6rem] max-w-3xl">
+                Five divisions. One shared standard of trust.
               </h2>
+              <p className="mt-5 max-w-2xl text-base leading-7 text-text-muted sm:text-lg">
+                We highly value and prioritise the collaborative relationships with our partners.
+                Together, we strive for mutual success and innovative solutions for shared growth.
+              </p>
             </Reveal>
             <Reveal delay={0.08}>
               <Link
                 href="/divisions"
-                className="group inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-teal hover:gap-3 transition-all shrink-0"
+                className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-paper transition-all hover:bg-teal hover:gap-3 shrink-0"
               >
                 See all divisions
                 <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5" />
@@ -538,28 +604,79 @@ export default function Home() {
             </Reveal>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-5">
-            {divisions.map((d, i) => (
-              <Reveal key={d.name} delay={0.05 * i}>
-                <div className="group h-full rounded-2xl border border-line bg-white/70 p-5 sm:p-6 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:border-teal/50 hover:shadow-lg hover:shadow-ink/5">
-                  <div className="flex flex-wrap gap-1.5 mb-3 sm:mb-4">
-                    {d.tags.map((t) => (
-                      <span
-                        key={t}
-                        className="rounded-full bg-paper-dim px-2.5 py-1 text-[0.6rem] sm:text-[0.65rem] font-mono uppercase tracking-wide text-text-muted"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                  <h3 className="font-display text-base sm:text-lg text-ink">{d.name}</h3>
-                  <p className="mt-2 text-xs sm:text-sm text-text-muted leading-relaxed flex-1">
-                    {d.description}
-                  </p>
-                  <span className="mt-4 font-mono text-[0.7rem] sm:text-xs text-gold truncate">{d.url}</span>
+          <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
+            <Reveal delay={0.1}>
+              <div className="relative mx-auto flex min-h-[420px] w-full max-w-[700px] items-center justify-center overflow-hidden rounded-[2rem] border border-line bg-white/45 shadow-2xl shadow-ink/10 backdrop-blur-sm sm:min-h-[560px] lg:min-h-[620px]">
+                <div
+                  aria-hidden
+                  className="absolute inset-5 rounded-[1.5rem] bg-[linear-gradient(135deg,rgba(15,27,51,0.06),rgba(20,82,74,0.13)),radial-gradient(circle_at_72%_20%,rgba(228,197,131,0.55),transparent_30%)]"
+                />
+                <div
+                  aria-hidden
+                  className="absolute left-8 top-8 h-24 w-24 rounded-full border border-gold/40 bg-gold/10"
+                />
+                <div className="relative z-10 w-[118%] max-w-[760px] p-2 sm:w-[112%] lg:w-[118%]">
+                  <NetworkOrbit />
                 </div>
+              </div>
+            </Reveal>
+
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+              {divisions.map((d, i) => (
+                <Reveal key={d.name} delay={0.05 * i}>
+                  <a
+                    href={`https://${d.url}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group flex min-h-48 flex-col rounded-2xl border border-line bg-white/80 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-teal/50 hover:shadow-xl hover:shadow-ink/8"
+                  >
+                    <div
+                      className={`mb-5 flex h-16 w-16 items-center justify-center rounded-full text-lg font-display ${
+                        d.color === "gold"
+                          ? "bg-gold/15 text-gold"
+                          : "bg-teal/12 text-teal"
+                      }`}
+                    >
+                      {d.name
+                        .split(" ")
+                        .map((part) => part[0])
+                        .join("")
+                        .slice(0, 2)}
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {d.tags.map((t) => (
+                        <span
+                          key={t}
+                          className="rounded-full bg-paper-dim px-3 py-1 text-[0.72rem] font-mono uppercase tracking-wide text-text-muted"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="mt-4 font-display text-2xl text-ink">{d.name}</h3>
+                    <p className="mt-3 flex-1 text-sm leading-6 text-text-muted">{d.description}</p>
+                    <span className="mt-5 font-mono text-sm text-gold transition-colors group-hover:text-teal">
+                      {d.url}
+                    </span>
+                  </a>
+                </Reveal>
+              ))}
+              <Reveal delay={0.28}>
+                <Link
+                  href="/divisions"
+                  className="flex min-h-48 flex-col justify-between rounded-2xl border border-dashed border-teal/40 bg-teal/5 p-6 transition-all hover:border-teal hover:bg-teal/10"
+                >
+                  <div>
+                    <p className="eyebrow mb-3 text-teal">Explore</p>
+                    <h3 className="font-display text-2xl text-ink">View the full network</h3>
+                    <p className="mt-3 text-sm leading-6 text-text-muted">
+                      See every division, platform, and partner link in one place.
+                    </p>
+                  </div>
+                  <ArrowRight size={22} className="mt-6 text-teal" />
+                </Link>
               </Reveal>
-            ))}
+            </div>
           </div>
         </div>
       </section>

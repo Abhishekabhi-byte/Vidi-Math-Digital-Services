@@ -15,11 +15,31 @@ function pos(i: number, total: number) {
   };
 }
 
-export default function NetworkOrbit({ compact = false }: { compact?: boolean }) {
+function labelLines(name: string) {
+  const custom: Record<string, string[]> = {
+    VillageMyCity: ["Village", "MyCity"],
+    VmHomeMart: ["VmHome", "Mart"],
+    "VM Academy": ["VM", "Academy"],
+  };
+
+  return custom[name] ?? [name];
+}
+
+export default function NetworkOrbit({
+  compact = false,
+  className,
+}: {
+  compact?: boolean;
+  className?: string;
+}) {
+  const nodeRadius = compact ? 50 : 56;
+  const labelSize = compact ? 12.4 : 13.6;
+  const lineHeight = compact ? 14.5 : 15.5;
+
   return (
     <svg
       viewBox="0 0 600 600"
-      className={compact ? "w-full max-w-md" : "w-full max-w-xl"}
+      className={className ?? (compact ? "w-full max-w-xl" : "w-full max-w-2xl")}
       role="img"
       aria-label="Vidi Meth at the centre of its five business divisions"
     >
@@ -58,7 +78,7 @@ export default function NetworkOrbit({ compact = false }: { compact?: boolean })
             <motion.circle
               cx={p.x}
               cy={p.y}
-              r={compact ? 30 : 38}
+              r={nodeRadius}
               fill="var(--color-paper)"
               stroke={stroke}
               strokeWidth={1.5}
@@ -71,7 +91,7 @@ export default function NetworkOrbit({ compact = false }: { compact?: boolean })
             <motion.circle
               cx={p.x}
               cy={p.y}
-              r={compact ? 30 : 38}
+              r={nodeRadius}
               fill="none"
               stroke={stroke}
               strokeWidth={1}
@@ -80,16 +100,28 @@ export default function NetworkOrbit({ compact = false }: { compact?: boolean })
               transition={{ repeat: Infinity, duration: 3.2, delay: i * 0.4, ease: "easeOut" }}
               style={{ transformOrigin: `${p.x}px ${p.y}px` }}
             />
-            <text
-              x={p.x}
-              y={p.y + 4}
-              textAnchor="middle"
-              className="font-mono"
-              fontSize={compact ? 8.5 : 10.5}
-              fill="var(--color-ink)"
-            >
-              {d.name}
-            </text>
+            {(() => {
+              const lines = labelLines(d.name);
+              const startY = p.y - ((lines.length - 1) * lineHeight) / 2 + 3;
+
+              return (
+                <text
+                  x={p.x}
+                  y={startY}
+                  textAnchor="middle"
+                  className="font-mono"
+                  fontSize={labelSize}
+                  fontWeight={600}
+                  fill="var(--color-ink)"
+                >
+                  {lines.map((line, lineIndex) => (
+                    <tspan key={line} x={p.x} dy={lineIndex === 0 ? 0 : lineHeight}>
+                      {line}
+                    </tspan>
+                  ))}
+                </text>
+              );
+            })()}
           </g>
         );
       })}
@@ -97,7 +129,7 @@ export default function NetworkOrbit({ compact = false }: { compact?: boolean })
       <motion.circle
         cx={CX}
         cy={CY}
-        r={compact ? 52 : 64}
+        r={compact ? 70 : 78}
         fill="var(--color-ink)"
         initial={{ scale: 0.6, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
@@ -109,7 +141,7 @@ export default function NetworkOrbit({ compact = false }: { compact?: boolean })
         y={CY - 4}
         textAnchor="middle"
         className="font-display"
-        fontSize={compact ? 20 : 26}
+        fontSize={compact ? 30 : 34}
         fill="var(--color-paper)"
       >
         VM
@@ -119,7 +151,7 @@ export default function NetworkOrbit({ compact = false }: { compact?: boolean })
         y={CY + 16}
         textAnchor="middle"
         className="font-mono"
-        fontSize={compact ? 7 : 8}
+        fontSize={compact ? 9.5 : 10.5}
         letterSpacing="1.5"
         fill="var(--color-gold-soft)"
       >

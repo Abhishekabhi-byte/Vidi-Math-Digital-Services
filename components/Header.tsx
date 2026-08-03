@@ -7,8 +7,6 @@ import { Menu, X } from "lucide-react";
 import { nav, company } from "@/data/content";
 import Image from "next/image";
 
-
-
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -28,25 +26,25 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group">
-           <div className="h-17 w-20 transition-transform duration-900 group-hover:scale-105">
-  <Image
-    src="/vidilogo.png"
-    alt="Vidi Meth Logo"
-    width={90}
-    height={90}
-    className="object-contain"
-    priority
-  />
-</div>
+        <div className="flex h-20 items-center justify-between gap-6">
+          <Link href="/" className="group flex shrink-0 items-center gap-3">
+            <div className="relative h-14 w-14 transition-transform duration-500 group-hover:scale-105">
+              <Image
+                src="/vidilogo.png"
+                alt="Vidi Meth Logo"
+                fill
+                sizes="56px"
+                className="object-contain"
+                priority
+              />
+            </div>
             <span className="flex flex-col leading-tight">
               <span className="font-display text-base text-ink">Vidi Meth</span>
               <span className="eyebrow text-[0.6rem] text-text-muted">Digital Services</span>
             </span>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden flex-1 items-center justify-center gap-6 lg:flex xl:gap-8">
             {nav.map((item) => {
               const active = pathname === item.href;
               return (
@@ -68,10 +66,10 @@ export default function Header() {
             })}
           </nav>
 
-          <div className="hidden lg:block">
+          <div className="hidden shrink-0 lg:flex">
             <Link
               href="/contact"
-              className="inline-flex items-center rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-paper transition-colors hover:bg-teal"
+              className="inline-flex items-center whitespace-nowrap rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-paper transition-colors hover:bg-teal"
             >
               Start a conversation
             </Link>

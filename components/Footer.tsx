@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { Mail, Clock, MapPin } from "lucide-react";
-import { company, nav, quickLinks } from "@/data/content";
+import { Clock, Mail, MapPin } from "lucide-react";
+import { company, legalLinks, nav, quickLinks, socialLinks } from "@/data/content";
 import Image from "next/image";
-
 
 export default function Footer() {
   return (
@@ -38,7 +37,7 @@ export default function Footer() {
               ))}
               <li>
                 <a href="#" className="hover:text-gold-soft transition-colors">
-                  {/* Career */}
+                  Career
                 </a>
               </li>
             </ul>
@@ -86,6 +85,20 @@ export default function Footer() {
                 <span>{company.hours}</span>
               </li>
             </ul>
+            <div className="mt-6 flex gap-3">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={link.label}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-paper/10 font-mono text-xs font-semibold uppercase text-paper transition-colors hover:bg-gold hover:text-ink"
+                >
+                  {link.mark}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -96,12 +109,13 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-paper/15 pt-8 text-xs text-paper/55">
-          <p>© {new Date().getFullYear()} {company.name}. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {company.name}. All rights reserved.</p>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
-            <a href="#" className="hover:text-gold-soft">Grievance</a>
-            <a href="#" className="hover:text-gold-soft">Privacy Policy</a>
-            <a href="#" className="hover:text-gold-soft">Terms of Use</a>
-            <a href="#" className="hover:text-gold-soft">Disclaimer</a>
+            {legalLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="hover:text-gold-soft">
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

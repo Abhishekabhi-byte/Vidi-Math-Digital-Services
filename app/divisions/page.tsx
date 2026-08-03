@@ -26,7 +26,9 @@ export default function DivisionsPage() {
             </p>
           </Reveal>
           <Reveal delay={0.15}>
-            <NetworkOrbit compact />
+            <div className="mx-auto w-full max-w-2xl">
+              <NetworkOrbit compact className="w-full" />
+            </div>
           </Reveal>
         </div>
       </section>
