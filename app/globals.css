@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --color-ink: #0f1b33;
-  --color-ink-soft: #1c2c4a;
-  --color-paper: #f7f4ec;
-  --color-paper-dim: #efe9db;
-  --color-gold: #c9962c;
-  --color-gold-soft: #e4c583;
-  --color-teal: #14524a;
-  --color-teal-soft: #cfe3df;
+  --color-ink: #063f73;
+  --color-ink-soft: #075f84;
+  --color-paper: #eef8ff;
+  --color-paper-dim: #dff2ff;
+  --color-gold: #00a651;
+  --color-gold-soft: #7ee6ae;
+  --color-teal: #0076c9;
+  --color-teal-soft: #bfefff;
   --color-text: #16181d;
   --color-text-muted: #52586a;
   --color-line: rgba(15, 27, 51, 0.12);

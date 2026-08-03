@@ -25,30 +25,30 @@ export default function Header() {
         scrolled ? "shadow-lg shadow-ink/5" : ""
       }`}
     >
-      <div className="bg-[#123f2b] text-white">
+      <div className="bg-[#0076c9] text-white">
         <div className="mx-auto flex max-w-6xl items-center justify-center gap-5 px-4 py-2.5 text-[0.72rem] font-medium sm:justify-between sm:px-6 lg:px-8">
           <div className="hidden items-center gap-5 sm:flex">
             <a href={`mailto:${company.email}`} className="inline-flex items-center gap-2 text-white/85 hover:text-lime-300">
-              <Mail size={14} className="text-lime-400" />
+              <Mail size={14} className="text-[#00a651]" />
               {company.email}
             </a>
             <span className="inline-flex items-center gap-2 text-white/85">
-              <Clock size={14} className="text-lime-400" />
+              <Clock size={14} className="text-[#00a651]" />
               {company.hours}
             </span>
           </div>
           <span className="inline-flex items-center gap-2 text-white/85">
-            <span className="h-2 w-2 rounded-full bg-lime-400" />
+            <span className="h-2 w-2 rounded-full bg-[#00a651]" />
             Vidi Meth Digital Services (OPC) Pvt. Ltd.
           </span>
         </div>
       </div>
 
-      <div className="bg-[#f6f8f2]/95 backdrop-blur">
+      <div className="bg-[#eef8ff]/95 backdrop-blur">
         <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6 lg:px-8">
-          <div className="flex min-h-16 items-center justify-between gap-5 rounded-full border border-[#123f2b]/10 bg-white/90 px-4 py-2 shadow-sm">
+          <div className="flex min-h-16 items-center justify-between gap-5 rounded-full border border-[#0076c9]/10 bg-white/90 px-4 py-2 shadow-sm">
             <Link href="/" className="group flex shrink-0 items-center gap-3">
-              <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-lime-400/20 transition-transform duration-500 group-hover:scale-105">
+              <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-[#00a651]/15 transition-transform duration-500 group-hover:scale-105">
                 <Image
                   src="/vidilogo.png"
                   alt="Vidi Meth Logo"
@@ -59,7 +59,7 @@ export default function Header() {
                 />
               </div>
               <span className="flex flex-col leading-tight">
-                <span className="font-display text-base text-[#123f2b]">Vidi Meth</span>
+                <span className="font-display text-base text-[#0076c9]">Vidi Meth</span>
                 <span className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-text-muted">
                   Digital Services
                 </span>
@@ -75,8 +75,8 @@ export default function Header() {
                     href={item.href}
                     className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
                       active
-                        ? "bg-lime-400 text-[#123f2b]"
-                        : "text-[#123f2b]/70 hover:bg-[#123f2b]/6 hover:text-[#123f2b]"
+                        ? "bg-[#00a651] text-white"
+                        : "text-[#0076c9]/75 hover:bg-[#0076c9]/6 hover:text-[#0076c9]"
                     }`}
                   >
                     {item.label}
@@ -88,7 +88,7 @@ export default function Header() {
             <div className="hidden shrink-0 lg:flex">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#123f2b] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-lime-400 hover:text-[#123f2b]"
+                className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#0076c9] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#00a651]"
               >
                 Get a Quote
                 <ArrowRight size={16} />
@@ -98,7 +98,7 @@ export default function Header() {
             <button
               aria-label={open ? "Close menu" : "Open menu"}
               onClick={() => setOpen((o) => !o)}
-              className="flex h-11 w-11 items-center justify-center rounded-full bg-[#123f2b] text-white lg:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-[#0076c9] text-white lg:hidden"
             >
               {open ? <X size={18} /> : <Menu size={18} />}
             </button>
@@ -107,7 +107,7 @@ export default function Header() {
       </div>
 
       <div
-        className={`overflow-hidden border-b border-[#123f2b]/10 bg-[#f6f8f2] transition-[max-height] duration-300 lg:hidden ${
+        className={`overflow-hidden border-b border-[#0076c9]/10 bg-[#eef8ff] transition-[max-height] duration-300 lg:hidden ${
           open ? "max-h-96" : "max-h-0"
         }`}
       >
@@ -118,7 +118,7 @@ export default function Header() {
               href={item.href}
               onClick={() => setOpen(false)}
               className={`rounded-full px-4 py-3 text-sm font-semibold ${
-                pathname === item.href ? "bg-lime-400 text-[#123f2b]" : "text-[#123f2b]/75"
+                pathname === item.href ? "bg-[#00a651] text-white" : "text-[#0076c9]/75"
               }`}
             >
               {item.label}
@@ -127,7 +127,7 @@ export default function Header() {
           <a
             href={`mailto:${company.email}`}
             onClick={() => setOpen(false)}
-            className="mt-2 rounded-full bg-[#123f2b] px-4 py-3 text-center text-sm font-semibold text-white"
+            className="mt-2 rounded-full bg-[#0076c9] px-4 py-3 text-center text-sm font-semibold text-white"
           >
             Email us
           </a>
