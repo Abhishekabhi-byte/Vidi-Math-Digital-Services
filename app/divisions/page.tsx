@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import NetworkOrbit from "@/components/NetworkOrbit";
 import { divisions } from "@/data/content";
 
 export const metadata: Metadata = {
@@ -14,21 +13,16 @@ export default function DivisionsPage() {
   return (
     <div>
       <section className="border-b border-line paper-texture">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 lg:py-24 grid lg:grid-cols-[1fr_0.9fr] gap-14 items-center">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8 py-20 lg:py-24 text-center">
           <Reveal>
-            <p className="eyebrow mb-4">Facilitating global business networks</p>
-            <h1 className="font-display text-4xl sm:text-5xl text-ink leading-tight text-balance">
+            <p className="eyebrow mb-4 justify-center flex">Facilitating global business networks</p>
+            <h1 className="font-display text-4xl sm:text-6xl text-ink leading-tight text-balance">
               Five divisions. One shared standard of trust.
             </h1>
-            <p className="mt-6 text-lg text-text-muted leading-relaxed max-w-lg">
+            <p className="mt-6 text-lg text-text-muted leading-relaxed">
               We highly value and prioritise the collaborative relationships with our partners.
               Together, we strive for mutual success and innovative solutions for shared growth.
             </p>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <div className="mx-auto w-full max-w-2xl">
-              <NetworkOrbit compact className="w-full" />
-            </div>
           </Reveal>
         </div>
       </section>

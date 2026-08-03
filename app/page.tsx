@@ -604,79 +604,63 @@ export default function Home() {
             </Reveal>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-            <Reveal delay={0.1}>
-              <div className="relative mx-auto flex min-h-[420px] w-full max-w-[700px] items-center justify-center overflow-hidden rounded-[2rem] border border-line bg-white/45 shadow-2xl shadow-ink/10 backdrop-blur-sm sm:min-h-[560px] lg:min-h-[620px]">
-                <div
-                  aria-hidden
-                  className="absolute inset-5 rounded-[1.5rem] bg-[linear-gradient(135deg,rgba(15,27,51,0.06),rgba(20,82,74,0.13)),radial-gradient(circle_at_72%_20%,rgba(228,197,131,0.55),transparent_30%)]"
-                />
-                <div
-                  aria-hidden
-                  className="absolute left-8 top-8 h-24 w-24 rounded-full border border-gold/40 bg-gold/10"
-                />
-                <div className="relative z-10 w-[118%] max-w-[760px] p-2 sm:w-[112%] lg:w-[118%]">
-                  <NetworkOrbit />
-                </div>
-              </div>
-            </Reveal>
-
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-              {divisions.map((d, i) => (
-                <Reveal key={d.name} delay={0.05 * i}>
-                  <a
-                    href={`https://${d.url}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group flex min-h-48 flex-col rounded-2xl border border-line bg-white/80 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-teal/50 hover:shadow-xl hover:shadow-ink/8"
-                  >
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {divisions.map((d, i) => (
+              <Reveal key={d.name} delay={0.05 * i}>
+                <a
+                  href={`https://${d.url}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group flex min-h-64 flex-col rounded-2xl border border-line bg-white/85 p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-teal/50 hover:shadow-xl hover:shadow-ink/8"
+                >
+                  <div className="flex items-start justify-between gap-4">
                     <div
-                      className={`mb-5 flex h-16 w-16 items-center justify-center rounded-full text-lg font-display ${
+                      className={`flex h-20 w-20 shrink-0 items-center justify-center rounded-full text-2xl font-display ${
                         d.color === "gold"
                           ? "bg-gold/15 text-gold"
                           : "bg-teal/12 text-teal"
                       }`}
                     >
-                      {d.name
-                        .split(" ")
-                        .map((part) => part[0])
-                        .join("")
-                        .slice(0, 2)}
+                      {d.name.replace(/[^A-Z]/g, "").slice(0, 2) || d.name.slice(0, 2)}
                     </div>
-                    <div className="flex flex-wrap gap-2">
-                      {d.tags.map((t) => (
-                        <span
-                          key={t}
-                          className="rounded-full bg-paper-dim px-3 py-1 text-[0.72rem] font-mono uppercase tracking-wide text-text-muted"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                    <h3 className="mt-4 font-display text-2xl text-ink">{d.name}</h3>
-                    <p className="mt-3 flex-1 text-sm leading-6 text-text-muted">{d.description}</p>
-                    <span className="mt-5 font-mono text-sm text-gold transition-colors group-hover:text-teal">
-                      {d.url}
-                    </span>
-                  </a>
-                </Reveal>
-              ))}
-              <Reveal delay={0.28}>
-                <Link
-                  href="/divisions"
-                  className="flex min-h-48 flex-col justify-between rounded-2xl border border-dashed border-teal/40 bg-teal/5 p-6 transition-all hover:border-teal hover:bg-teal/10"
-                >
-                  <div>
-                    <p className="eyebrow mb-3 text-teal">Explore</p>
-                    <h3 className="font-display text-2xl text-ink">View the full network</h3>
-                    <p className="mt-3 text-sm leading-6 text-text-muted">
-                      See every division, platform, and partner link in one place.
-                    </p>
+                    <ArrowRight
+                      size={22}
+                      className="mt-1 text-text-muted transition-all group-hover:translate-x-1 group-hover:text-teal"
+                    />
                   </div>
-                  <ArrowRight size={22} className="mt-6 text-teal" />
-                </Link>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {d.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="rounded-full bg-paper-dim px-3 py-1 text-[0.72rem] font-mono uppercase tracking-wide text-text-muted"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 className="mt-5 font-display text-3xl text-ink">{d.name}</h3>
+                  <p className="mt-3 flex-1 text-base leading-7 text-text-muted">{d.description}</p>
+                  <span className="mt-6 font-mono text-sm text-gold transition-colors group-hover:text-teal">
+                    {d.url}
+                  </span>
+                </a>
               </Reveal>
-            </div>
+            ))}
+            <Reveal delay={0.28}>
+              <Link
+                href="/divisions"
+                className="flex min-h-64 flex-col justify-between rounded-2xl border border-dashed border-teal/45 bg-teal/5 p-7 transition-all hover:border-teal hover:bg-teal/10"
+              >
+                <div>
+                  <p className="eyebrow mb-4 text-teal">Explore</p>
+                  <h3 className="font-display text-3xl text-ink">View the full network</h3>
+                  <p className="mt-3 text-base leading-7 text-text-muted">
+                    See every division, platform, and partner link in one place.
+                  </p>
+                </div>
+                <ArrowRight size={26} className="mt-8 text-teal" />
+              </Link>
+            </Reveal>
           </div>
         </div>
       </section>
