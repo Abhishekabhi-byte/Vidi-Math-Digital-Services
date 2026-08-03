@@ -26,17 +26,17 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="eyebrow mb-4 text-gold-soft">Links</p>
+            <p className="eyebrow mb-4 text-teal-soft">Links</p>
             <ul className="space-y-2.5 text-sm text-paper/75">
               {nav.slice(1).map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="hover:text-gold-soft transition-colors">
+                  <Link href={item.href} className="hover:text-teal-soft transition-colors">
                     {item.label}
                   </Link>
                 </li>
               ))}
               <li>
-                <a href="#" className="hover:text-gold-soft transition-colors">
+                <a href="#" className="hover:text-teal-soft transition-colors">
                   Career
                 </a>
               </li>
@@ -44,7 +44,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="eyebrow mb-4 text-gold-soft">Quick Links</p>
+            <p className="eyebrow mb-4 text-teal-soft">Quick Links</p>
             <ul className="space-y-2.5 text-sm text-paper/75">
               {quickLinks.map((link) => (
                 <li key={link}>
@@ -52,7 +52,7 @@ export default function Footer() {
                     href={`https://${link}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-gold-soft transition-colors"
+                    className="hover:text-teal-soft transition-colors"
                   >
                     {link}
                   </a>
@@ -62,10 +62,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="eyebrow mb-4 text-gold-soft">Registered Office</p>
+            <p className="eyebrow mb-4 text-teal-soft">Registered Office</p>
             <ul className="space-y-3 text-sm text-paper/75">
               <li className="flex gap-2.5">
-                <MapPin size={16} className="mt-0.5 shrink-0 text-gold" />
+                <MapPin size={16} className="mt-0.5 shrink-0 text-teal-soft" />
                 <span>
                   {company.address.line1}
                   <br />
@@ -75,13 +75,13 @@ export default function Footer() {
                 </span>
               </li>
               <li className="flex gap-2.5">
-                <Mail size={16} className="mt-0.5 shrink-0 text-gold" />
-                <a href={`mailto:${company.email}`} className="hover:text-gold-soft">
+                <Mail size={16} className="mt-0.5 shrink-0 text-teal-soft" />
+                <a href={`mailto:${company.email}`} className="hover:text-teal-soft">
                   {company.email}
                 </a>
               </li>
               <li className="flex gap-2.5">
-                <Clock size={16} className="mt-0.5 shrink-0 text-gold" />
+                <Clock size={16} className="mt-0.5 shrink-0 text-teal-soft" />
                 <span>{company.hours}</span>
               </li>
             </ul>
@@ -93,7 +93,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={link.label}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-paper/10 font-mono text-xs font-semibold uppercase text-paper transition-colors hover:bg-gold hover:text-ink"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-paper/10 font-mono text-xs font-semibold uppercase text-paper transition-colors hover:bg-teal-soft hover:text-ink"
                 >
                   {link.mark}
                 </a>
@@ -112,7 +112,7 @@ export default function Footer() {
           <p>&copy; {new Date().getFullYear()} {company.name}. All rights reserved.</p>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             {legalLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="hover:text-gold-soft">
+              <Link key={link.href} href={link.href} className="hover:text-teal-soft">
                 {link.label}
               </Link>
             ))}

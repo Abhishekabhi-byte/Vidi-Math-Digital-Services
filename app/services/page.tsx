@@ -53,7 +53,7 @@ export default function ServicesPage() {
       <section className="bg-ink text-paper">
         <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20">
           <Reveal>
-            <p className="eyebrow mb-4 text-gold-soft">Our digital marketing expertise</p>
+            <p className="eyebrow mb-4 text-teal-soft">Our digital marketing expertise</p>
             <h2 className="font-display text-3xl sm:text-4xl leading-tight max-w-2xl">
               Delivered through a live network of five platforms.
             </h2>
@@ -69,7 +69,7 @@ export default function ServicesPage() {
                   className="flex items-center justify-between rounded-xl border border-paper/15 bg-paper/5 px-5 py-4 font-mono text-sm hover:border-gold hover:bg-paper/10 transition-colors"
                 >
                   {link}
-                  <ArrowRight size={16} className="text-gold" />
+                  <ArrowRight size={16} className="text-teal-soft" />
                 </a>
               </Reveal>
             ))}
@@ -78,7 +78,7 @@ export default function ServicesPage() {
           <Reveal delay={0.2}>
             <Link
               href="/divisions"
-              className="mt-10 inline-flex items-center gap-2 text-sm font-semibold text-gold-soft hover:gap-3 transition-all"
+              className="mt-10 inline-flex items-center gap-2 text-sm font-semibold text-teal-soft hover:gap-3 transition-all"
             >
               See what each division does <ArrowRight size={16} />
             </Link>

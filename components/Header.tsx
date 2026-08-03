@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { ArrowRight, Clock, Mail, Menu, X } from "lucide-react";
 import { nav, company } from "@/data/content";
 import Image from "next/image";
 
@@ -21,83 +21,104 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-colors duration-300 ${
-        scrolled ? "bg-paper/95 backdrop-blur border-b border-line" : "bg-transparent"
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled ? "shadow-lg shadow-ink/5" : ""
       }`}
     >
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between gap-6">
-          <Link href="/" className="group flex shrink-0 items-center gap-3">
-            <div className="relative h-14 w-14 transition-transform duration-500 group-hover:scale-105">
-              <Image
-                src="/vidilogo.png"
-                alt="Vidi Meth Logo"
-                fill
-                sizes="56px"
-                className="object-contain"
-                priority
-              />
-            </div>
-            <span className="flex flex-col leading-tight">
-              <span className="font-display text-base text-ink">Vidi Meth</span>
-              <span className="eyebrow text-[0.6rem] text-text-muted">Digital Services</span>
+      <div className="bg-[#123f2b] text-white">
+        <div className="mx-auto flex max-w-6xl items-center justify-center gap-5 px-4 py-2.5 text-[0.72rem] font-medium sm:justify-between sm:px-6 lg:px-8">
+          <div className="hidden items-center gap-5 sm:flex">
+            <a href={`mailto:${company.email}`} className="inline-flex items-center gap-2 text-white/85 hover:text-lime-300">
+              <Mail size={14} className="text-lime-400" />
+              {company.email}
+            </a>
+            <span className="inline-flex items-center gap-2 text-white/85">
+              <Clock size={14} className="text-lime-400" />
+              {company.hours}
             </span>
-          </Link>
-
-          <nav className="hidden flex-1 items-center justify-center gap-6 lg:flex xl:gap-8">
-            {nav.map((item) => {
-              const active = pathname === item.href;
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`relative text-sm font-medium tracking-wide transition-colors ${
-                    active ? "text-ink" : "text-text-muted hover:text-ink"
-                  }`}
-                >
-                  {item.label}
-                  <span
-                    className={`absolute -bottom-1.5 left-0 h-[2px] bg-gold transition-all duration-300 ${
-                      active ? "w-full" : "w-0"
-                    }`}
-                  />
-                </Link>
-              );
-            })}
-          </nav>
-
-          <div className="hidden shrink-0 lg:flex">
-            <Link
-              href="/contact"
-              className="inline-flex items-center whitespace-nowrap rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-paper transition-colors hover:bg-teal"
-            >
-              Start a conversation
-            </Link>
           </div>
+          <span className="inline-flex items-center gap-2 text-white/85">
+            <span className="h-2 w-2 rounded-full bg-lime-400" />
+            Vidi Meth Digital Services (OPC) Pvt. Ltd.
+          </span>
+        </div>
+      </div>
 
-          <button
-            aria-label={open ? "Close menu" : "Open menu"}
-            onClick={() => setOpen((o) => !o)}
-            className="lg:hidden flex h-10 w-10 items-center justify-center rounded-full border border-line text-ink"
-          >
-            {open ? <X size={18} /> : <Menu size={18} />}
-          </button>
+      <div className="bg-[#f6f8f2]/95 backdrop-blur">
+        <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6 lg:px-8">
+          <div className="flex min-h-16 items-center justify-between gap-5 rounded-full border border-[#123f2b]/10 bg-white/90 px-4 py-2 shadow-sm">
+            <Link href="/" className="group flex shrink-0 items-center gap-3">
+              <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-lime-400/20 transition-transform duration-500 group-hover:scale-105">
+                <Image
+                  src="/vidilogo.png"
+                  alt="Vidi Meth Logo"
+                  fill
+                  sizes="48px"
+                  className="object-contain p-1"
+                  priority
+                />
+              </div>
+              <span className="flex flex-col leading-tight">
+                <span className="font-display text-base text-[#123f2b]">Vidi Meth</span>
+                <span className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-text-muted">
+                  Digital Services
+                </span>
+              </span>
+            </Link>
+
+            <nav className="hidden flex-1 items-center justify-center gap-1 lg:flex">
+              {nav.map((item) => {
+                const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+                      active
+                        ? "bg-lime-400 text-[#123f2b]"
+                        : "text-[#123f2b]/70 hover:bg-[#123f2b]/6 hover:text-[#123f2b]"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </nav>
+
+            <div className="hidden shrink-0 lg:flex">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#123f2b] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-lime-400 hover:text-[#123f2b]"
+              >
+                Get a Quote
+                <ArrowRight size={16} />
+              </Link>
+            </div>
+
+            <button
+              aria-label={open ? "Close menu" : "Open menu"}
+              onClick={() => setOpen((o) => !o)}
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-[#123f2b] text-white lg:hidden"
+            >
+              {open ? <X size={18} /> : <Menu size={18} />}
+            </button>
+          </div>
         </div>
       </div>
 
       <div
-        className={`lg:hidden overflow-hidden border-b border-line bg-paper transition-[max-height] duration-300 ${
+        className={`overflow-hidden border-b border-[#123f2b]/10 bg-[#f6f8f2] transition-[max-height] duration-300 lg:hidden ${
           open ? "max-h-96" : "max-h-0"
         }`}
       >
-        <nav className="mx-auto max-w-6xl px-6 py-4 flex flex-col gap-1">
+        <nav className="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-4">
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className={`rounded-lg px-3 py-3 text-sm font-medium ${
-                pathname === item.href ? "bg-paper-dim text-ink" : "text-text-muted"
+              className={`rounded-full px-4 py-3 text-sm font-semibold ${
+                pathname === item.href ? "bg-lime-400 text-[#123f2b]" : "text-[#123f2b]/75"
               }`}
             >
               {item.label}
@@ -106,7 +127,7 @@ export default function Header() {
           <a
             href={`mailto:${company.email}`}
             onClick={() => setOpen(false)}
-            className="mt-2 rounded-full bg-ink px-4 py-3 text-center text-sm font-semibold text-paper"
+            className="mt-2 rounded-full bg-[#123f2b] px-4 py-3 text-center text-sm font-semibold text-white"
           >
             Email us
           </a>

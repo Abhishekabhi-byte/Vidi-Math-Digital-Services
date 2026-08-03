@@ -54,7 +54,7 @@ export default function AboutPage() {
       <section className="bg-ink text-paper">
         <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20">
           <Reveal>
-            <p className="eyebrow mb-4 text-gold-soft">Why choose us</p>
+            <p className="eyebrow mb-4 text-teal-soft">Why choose us</p>
             <h2 className="font-display text-3xl sm:text-4xl leading-tight max-w-2xl">
               Businesses have come to depend on us for our expertise, quality, and customer
               service.
@@ -64,7 +64,7 @@ export default function AboutPage() {
           <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-9">
             {whyChooseUs.map((w, i) => (
               <Reveal key={w.title} delay={0.04 * i}>
-                <h3 className="font-display text-lg text-gold-soft">{w.title}</h3>
+                <h3 className="font-display text-lg text-teal-soft">{w.title}</h3>
                 <p className="mt-1.5 text-sm text-paper/70 leading-relaxed">{w.body}</p>
               </Reveal>
             ))}

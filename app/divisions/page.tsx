@@ -30,7 +30,7 @@ export default function DivisionsPage() {
       <section className="mx-auto max-w-6xl px-6 lg:px-8 py-20">
         <div className="grid gap-6">
           {divisions.map((d, i) => {
-            const accent = d.color === "gold" ? "text-gold" : "text-teal";
+            const accent = d.color === "gold" ? "text-teal" : "text-teal";
             const accentBorder = d.color === "gold" ? "hover:border-gold/60" : "hover:border-teal/60";
             return (
               <Reveal key={d.name} delay={0.06 * i}>
