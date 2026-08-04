@@ -5,7 +5,7 @@ import ContactForm from "@/components/ContactForm";
 import { company } from "@/data/content";
 
 export const metadata: Metadata = {
-  title: "Contact Us — Vidi Meth Digital Services",
+  title: "Contact Us - Vidi Meth Digital Services",
   description: "Get in touch with Vidi Meth Digital Services.",
 };
 
@@ -17,10 +17,10 @@ export default function ContactPage() {
           <Reveal>
             <p className="eyebrow mb-4 justify-center flex">Contact Us</p>
             <h1 className="font-display text-4xl sm:text-5xl text-ink leading-tight text-balance">
-              Let&apos;s talk about your business.
+              Contact Vidi Meth Digital Services.
             </h1>
             <p className="mt-6 text-lg text-text-muted leading-relaxed">
-              Reach out with a project, a question, or just an idea — we read every message.
+              Send us your enquiry or visit our registered office in Sakchi, Jamshedpur.
             </p>
           </Reveal>
         </div>
@@ -35,11 +35,13 @@ export default function ContactPage() {
           <Reveal delay={0.1}>
             <div className="space-y-6">
               <div className="rounded-2xl border border-line bg-paper-dim/50 p-7">
-                <p className="eyebrow mb-4">Registered office</p>
+                <p className="eyebrow mb-4">Address</p>
                 <div className="space-y-5 text-sm">
                   <div className="flex gap-3">
                     <MapPin size={18} className="mt-0.5 shrink-0 text-teal" />
                     <p className="text-text-muted leading-relaxed">
+                      <span className="font-semibold text-ink">{company.name}</span>
+                      <br />
                       {company.address.line1}
                       <br />
                       {company.address.line2}
@@ -64,9 +66,9 @@ export default function ContactPage() {
               </div>
 
               <div className="rounded-2xl border border-line p-7 font-mono text-xs text-text-muted space-y-2">
-                <p>CIN: {company.registration.cin}</p>
+                <p>CIN No: {company.registration.cin}</p>
                 <p>GSTIN: {company.registration.gstin}</p>
-                <p>PAN: {company.registration.pan}</p>
+                <p>PAN No.: {company.registration.pan}</p>
               </div>
 
               <div className="overflow-hidden rounded-2xl border border-line">

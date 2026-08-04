@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { Clock, Mail, MapPin } from "lucide-react";
 import { company, legalLinks, nav, quickLinks, socialLinks } from "@/data/content";
 import Image from "next/image";
+import FooterLink from "@/components/FooterLink";
 
 export default function Footer() {
   return (
@@ -30,9 +30,9 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm text-white/75">
               {nav.slice(1).map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="hover:text-[#00a651] transition-colors">
+                  <FooterLink href={item.href} className="hover:text-[#00a651] transition-colors">
                     {item.label}
-                  </Link>
+                  </FooterLink>
                 </li>
               ))}
               <li>
@@ -112,9 +112,9 @@ export default function Footer() {
           <p>&copy; {new Date().getFullYear()} {company.name}. All rights reserved.</p>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             {legalLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="hover:text-[#00a651]">
+              <FooterLink key={link.href} href={link.href} className="hover:text-[#00a651]">
                 {link.label}
-              </Link>
+              </FooterLink>
             ))}
           </div>
         </div>

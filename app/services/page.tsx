@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Megaphone, Radio, Briefcase, Send, LayoutGrid } from "lucide-react";
+import { ArrowRight, BadgeCheck, Briefcase, GraduationCap, LayoutGrid, Landmark, ShieldCheck } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { services, quickLinks } from "@/data/content";
 
 export const metadata: Metadata = {
-  title: "Our Services — Vidi Meth Digital Services",
+  title: "Our Services - Vidi Meth Digital Services",
   description: "Digital marketing, advertising, and business management services.",
 };
 
-const icons = [Megaphone, Radio, Briefcase, Send, LayoutGrid];
+const icons = [ShieldCheck, BadgeCheck, Landmark, GraduationCap, LayoutGrid, Briefcase];
 
 export default function ServicesPage() {
   return (
@@ -19,11 +19,10 @@ export default function ServicesPage() {
           <Reveal>
             <p className="eyebrow mb-4 justify-center flex">Our Services</p>
             <h1 className="font-display text-4xl sm:text-5xl text-ink leading-tight text-balance">
-              Master planning for every stage of your business.
+              We help your business.
             </h1>
             <p className="mt-6 text-lg text-text-muted leading-relaxed">
-              Our aim is to provide one-stop, effective digital marketing solutions for all
-              businesses — grounded in strategy, not templates.
+              Elevating your business success: we are your catalyst for growth and innovation.
             </p>
           </Reveal>
         </div>

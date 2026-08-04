@@ -3,7 +3,7 @@ export const company = {
   shortName: "Vidi Meth",
   tagline: "Concept marketing, online marketing, and business growth - built for Indian enterprise.",
   mission:
-    "To carry on in India or elsewhere the business of concept marketing and online marketing, advertising, business management, business administration, office function, and direct marketing - delivering high-quality services and products to every client we serve.",
+    "To carry on in India and elsewhere the business of concept marketing, online marketing, advertising, business management, business administration, office functions, and direct marketing while delivering high-quality services and products to every client we serve.",
   email: "info@vidimeth.com",
   hours: "Mon-Sat: 10:00 AM - 6:00 PM",
   address: {
@@ -112,7 +112,7 @@ export const whyChooseUs = [
   },
   {
     title: "Our reputation",
-    body: "Within the industry, our reputation is impeccable — earned client by client.",
+    body: "Within the industry, our reputation is impeccable - earned client by client.",
   },
   {
     title: "Communication & responsiveness",
@@ -130,24 +130,28 @@ export const whyChooseUs = [
 
 export const services = [
   {
-    title: "Concept & online marketing",
-    body: "Strategy-first digital marketing built around your brand's real story, not a template.",
+    title: "Insurance Policy",
+    body: "Experience the difference of personalised consultations. Our experts take the time to understand your specific requirements, offering tailored guidance and strategies that align with your goals.",
   },
   {
-    title: "Advertising",
-    body: "Campaigns across digital and traditional channels designed to reach the right audience.",
+    title: "Quality Support",
+    body: "Committed to excellence, our unwavering dedication ensures quality support. We prioritise satisfaction and consistently deliver beyond expectations with excellence.",
   },
   {
-    title: "Business management & administration",
-    body: "Operational support that keeps growing businesses organised, compliant, and efficient.",
+    title: "Financial Planning Services",
+    body: "Navigate your financial journey confidently with Vidimeth.com. Prioritising financial control, we provide services for effective planning, management, and financial certainty.",
   },
   {
-    title: "Direct marketing",
-    body: "Targeted outreach that turns prospects into customers and customers into advocates.",
+    title: "Educational Empowerment",
+    body: "Empower yourself with Vidimeth.com's online education platform. Access a wealth of courses, resources, and information to shape your educational path and drive personal growth.",
   },
   {
-    title: "One-stop digital solutions",
-    body: "Master planning across our full network of divisions — education, real estate, jobs, finance, and home services.",
+    title: "E-Commerce Experiences",
+    body: "Effortlessly navigate online commerce with Vidimeth.com. Our seamless platform simplifies buying and selling, ensuring a user-friendly experience for consumers and businesses alike.",
+  },
+  {
+    title: "Blending Business",
+    body: "Unlock synergy with our blended business ideas and services. We catalyse innovation, fostering seamless collaboration for unparalleled success. Your vision and our expertise create a transformative blend.",
   },
 ];
 
@@ -179,11 +183,11 @@ export const faqs = [
   },
   {
     q: "How can I get in touch?",
-    a: "Email us at info@vidimeth.com or visit our registered office in Sakchi, Jamshedpur. We're available Monday to Saturday, 10:00 AM – 6:00 PM.",
+    a: "Email us at info@vidimeth.com or visit our registered office in Sakchi, Jamshedpur. We're available Monday to Saturday, 10:00 AM - 6:00 PM.",
   },
   {
     q: "Do you offer personalised service?",
-    a: "Yes — every engagement includes one-on-one service, open communication, and a dedicated point of contact throughout.",
+    a: "Yes - every engagement includes one-on-one service, open communication, and a dedicated point of contact throughout.",
   },
 ];
 

@@ -13,11 +13,13 @@ export default function ContactForm() {
     const form = new FormData(e.currentTarget);
     const name = String(form.get("name") || "").trim();
     const email = String(form.get("email") || "").trim();
+    const phone = String(form.get("phone") || "").trim();
     const message = String(form.get("message") || "").trim();
 
     const nextErrors: Record<string, string> = {};
     if (!name) nextErrors.name = "Please enter your name.";
     if (!/^\S+@\S+\.\S+$/.test(email)) nextErrors.email = "Please enter a valid email.";
+    if (!phone) nextErrors.phone = "Please enter your phone number.";
     if (!message) nextErrors.message = "Please add a short message.";
 
     setErrors(nextErrors);
@@ -65,43 +67,55 @@ export default function ContactForm() {
             <div className="grid sm:grid-cols-2 gap-5">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-ink mb-1.5">
-                  Full name
+                  Name
                 </label>
                 <input
                   id="name"
                   name="name"
                   type="text"
-                  placeholder="Your name"
+                  placeholder="Name"
                   className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm outline-none transition-colors focus:border-gold"
                 />
                 {errors.name && <p className="mt-1 text-xs text-red-600">{errors.name}</p>}
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-ink mb-1.5">
-                  Email
+                  E-Mail
                 </label>
                 <input
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="you@company.com"
+                  placeholder="E-Mail"
                   className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm outline-none transition-colors focus:border-gold"
                 />
                 {errors.email && <p className="mt-1 text-xs text-red-600">{errors.email}</p>}
               </div>
-            </div>
-
-            <div>
-              <label htmlFor="subject" className="block text-sm font-medium text-ink mb-1.5">
-                Subject
-              </label>
-              <input
-                id="subject"
-                name="subject"
-                type="text"
-                placeholder="What's this about?"
-                className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm outline-none transition-colors focus:border-gold"
-              />
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-ink mb-1.5">
+                  Phone Number
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="Phone Number"
+                  className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm outline-none transition-colors focus:border-gold"
+                />
+                {errors.phone && <p className="mt-1 text-xs text-red-600">{errors.phone}</p>}
+              </div>
+              <div>
+                <label htmlFor="subject" className="block text-sm font-medium text-ink mb-1.5">
+                  Subject
+                </label>
+                <input
+                  id="subject"
+                  name="subject"
+                  type="text"
+                  placeholder="Subject"
+                  className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm outline-none transition-colors focus:border-gold"
+                />
+              </div>
             </div>
 
             <div>
@@ -112,7 +126,7 @@ export default function ContactForm() {
                 id="message"
                 name="message"
                 rows={5}
-                placeholder="Tell us about your business and what you need."
+                placeholder="Message Here"
                 className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm outline-none transition-colors focus:border-gold resize-none"
               />
               {errors.message && <p className="mt-1 text-xs text-red-600">{errors.message}</p>}
@@ -123,7 +137,7 @@ export default function ContactForm() {
               disabled={status === "submitting"}
               className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-semibold text-paper transition-colors hover:bg-teal disabled:opacity-60"
             >
-              {status === "submitting" ? "Sending…" : "Send message"}
+              {status === "submitting" ? "Sending..." : "Submit Now"}
               {status !== "submitting" && <Send size={16} />}
             </button>
           </motion.form>

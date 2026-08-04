@@ -3,6 +3,7 @@ import { Fraunces, Manrope, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -26,7 +27,7 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "Vidi Meth Digital Services (OPC) Pvt. Ltd.",
   description:
-    "Concept marketing, online marketing, advertising, and business management — Vidi Meth Digital Services and its network of five business divisions.",
+    "Concept marketing, online marketing, advertising, and business management - Vidi Meth Digital Services and its network of five business divisions.",
 };
 
 export default function RootLayout({
@@ -41,6 +42,7 @@ export default function RootLayout({
       className={`${fraunces.variable} ${manrope.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-paper text-text">
+        <ScrollToTop />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
