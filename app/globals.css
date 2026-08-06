@@ -12,6 +12,10 @@
   --color-text: #16181d;
   --color-text-muted: #52586a;
   --color-line: rgba(15, 27, 51, 0.12);
+  --font-fraunces: Georgia, "Times New Roman", serif;
+  --font-manrope: "Segoe UI", Arial, Helvetica, sans-serif;
+  --font-plex-mono: "Cascadia Mono", "SFMono-Regular", Consolas, "Liberation Mono",
+    monospace;
 }
 
 @theme inline {

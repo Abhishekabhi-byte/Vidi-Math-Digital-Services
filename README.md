@@ -17,7 +17,7 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000. The first `npm run build` needs internet access once, since it downloads the Google Fonts (Fraunces, Manrope, IBM Plex Mono) used in `app/layout.tsx`.
+Open http://localhost:3000. The app uses local system font stacks, so `npm run build` does not need to fetch Google Fonts.
 
 ## Build for production
 
