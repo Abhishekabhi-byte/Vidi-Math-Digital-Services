@@ -29,7 +29,7 @@ const serviceStrip = [
 ];
 
 const homeImages = {
-  heroSlides: ["/a1.png", "/s3.png"],
+  heroSlides: ["/a1.png", "/vmbanner.png", "/gojobinbanner.png"],
   businessDevelopment: ["/b1.jpeg", "/b2.png", "/b3.jpeg", "/b4.png", "/b5.png", "/b6.png"],
   aboutTop:
     "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1100",
@@ -95,25 +95,26 @@ export default function Home() {
           to { transform: translateX(-33.333%); }
         }
         @keyframes heroSlide {
-          0%, 42% { transform: translateX(0); }
-          50%, 92% { transform: translateX(-50%); }
+          0%, 28% { transform: translateX(0); }
+          33%, 61% { transform: translateX(-33.333%); }
+          66%, 94% { transform: translateX(-66.666%); }
           100% { transform: translateX(0); }
         }
       `}</style>
 
       <section className="relative overflow-hidden bg-white">
         <Reveal>
-          <div className="relative aspect-[5219/2297] w-full overflow-hidden">
-            <div className="flex h-full w-[200%] animate-[heroSlide_12s_ease-in-out_infinite]">
+          <div className="relative aspect-[1954/805] w-full overflow-hidden">
+            <div className="flex h-full w-[300%] animate-[heroSlide_18s_ease-in-out_infinite]">
               {homeImages.heroSlides.map((slide, index) => (
-                <div key={slide} className="relative h-full w-1/2 shrink-0">
+                <div key={slide} className="relative h-full w-1/3 shrink-0">
                   <Image
                     src={slide}
                     alt={`Vidi Meth hero slide ${index + 1}`}
                     fill
                     priority={index === 0}
                     sizes="100vw"
-                    className="object-contain"
+                    className="object-cover object-center"
                   />
                 </div>
               ))}
