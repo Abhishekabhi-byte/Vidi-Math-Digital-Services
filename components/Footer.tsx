@@ -6,37 +6,37 @@ import FooterLink from "@/components/FooterLink";
 export default function Footer() {
   return (
     <footer className="bg-black text-white">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16">
-        <div className="grid gap-12 lg:grid-cols-[1.3fr_0.8fr_0.8fr_1fr]">
+      <div className="mx-auto max-w-6xl px-6 py-10 lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-[1.25fr_0.75fr_0.85fr_1.15fr]">
           <div>
-            <div className="flex items-center gap-3 mb-5">
+            <div className="mb-4 flex items-center gap-3">
               <Image
                 src="/vidilogo.png"
                 alt="Vidi Meth Logo"
-                width={90}
-                height={90}
+                width={64}
+                height={64}
                 className="object-contain"
                 priority
               />
               <span className="font-display text-lg">Vidi Meth</span>
             </div>
-            <p className="text-sm text-white/70 leading-relaxed max-w-sm">
+            <p className="max-w-sm text-sm leading-relaxed text-white/70">
               {company.mission}
             </p>
           </div>
 
           <div>
-            <p className="eyebrow mb-4 text-[#00a651]">Links</p>
-            <ul className="space-y-2.5 text-sm text-white/75">
+            <p className="eyebrow mb-3 text-white">Links</p>
+            <ul className="space-y-2 text-sm text-white/75">
               {nav.slice(1).map((item) => (
                 <li key={item.href}>
-                  <FooterLink href={item.href} className="hover:text-[#00a651] transition-colors">
+                  <FooterLink href={item.href} className="hover:text-[#bfefff] transition-colors">
                     {item.label}
                   </FooterLink>
                 </li>
               ))}
               <li>
-                <a href="#" className="hover:text-[#00a651] transition-colors">
+                <a href="#" className="hover:text-[#bfefff] transition-colors">
                   Career
                 </a>
               </li>
@@ -44,15 +44,15 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="eyebrow mb-4 text-[#00a651]">Quick Links</p>
-            <ul className="space-y-2.5 text-sm text-white/75">
+            <p className="eyebrow mb-3 text-white">Quick Links</p>
+            <ul className="space-y-2 text-sm text-white/75">
               {quickLinks.map((link) => (
                 <li key={link}>
                   <a
                     href={`https://${link}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-[#00a651] transition-colors"
+                    className="hover:text-[#bfefff] transition-colors"
                   >
                     {link}
                   </a>
@@ -62,10 +62,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="eyebrow mb-4 text-[#00a651]">Registered Office</p>
-            <ul className="space-y-3 text-sm text-white/75">
+            <p className="eyebrow mb-3 text-white">Registered Office</p>
+            <ul className="space-y-2.5 text-sm text-white/75">
               <li className="flex gap-2.5">
-                <MapPin size={16} className="mt-0.5 shrink-0 text-[#00a651]" />
+                <MapPin size={16} className="mt-0.5 shrink-0 text-white" />
                 <span>
                   {company.address.line1}
                   <br />
@@ -75,17 +75,24 @@ export default function Footer() {
                 </span>
               </li>
               <li className="flex gap-2.5">
-                <Mail size={16} className="mt-0.5 shrink-0 text-[#00a651]" />
-                <a href={`mailto:${company.email}`} className="hover:text-[#00a651]">
+                <Mail size={16} className="mt-0.5 shrink-0 text-white" />
+                <a href={`mailto:${company.email}`} className="hover:text-[#bfefff]">
                   {company.email}
                 </a>
               </li>
               <li className="flex gap-2.5">
-                <Clock size={16} className="mt-0.5 shrink-0 text-[#00a651]" />
+                <Clock size={16} className="mt-0.5 shrink-0 text-white" />
                 <span>{company.hours}</span>
               </li>
             </ul>
-            <div className="mt-6 flex gap-3">
+
+            <div className="mt-4 space-y-1.5 font-mono text-[0.68rem] text-white/60">
+              <p>CIN: {company.registration.cin}</p>
+              <p>GSTIN: {company.registration.gstin}</p>
+              <p>PAN: {company.registration.pan}</p>
+            </div>
+
+            <div className="mt-4 flex gap-2.5">
               {socialLinks.map((link) => (
                 <a
                   key={link.href}
@@ -93,7 +100,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={link.label}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 font-mono text-xs font-semibold uppercase text-white transition-colors hover:bg-[#00a651] hover:text-white"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10 font-mono text-xs font-semibold uppercase text-white transition-colors hover:bg-white hover:text-black"
                 >
                   {link.mark}
                 </a>
@@ -102,17 +109,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 border-t border-white/15 pt-8 font-mono text-[0.7rem] text-white/55 flex flex-wrap gap-x-8 gap-y-2">
-          <span>CIN: {company.registration.cin}</span>
-          <span>GSTIN: {company.registration.gstin}</span>
-          <span>PAN: {company.registration.pan}</span>
-        </div>
-
-        <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/15 pt-8 text-xs text-white/55">
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/15 pt-5 text-xs text-white/55">
           <p>&copy; {new Date().getFullYear()} {company.name}. All rights reserved.</p>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             {legalLinks.map((link) => (
-              <FooterLink key={link.href} href={link.href} className="hover:text-[#00a651]">
+              <FooterLink key={link.href} href={link.href} className="hover:text-[#bfefff]">
                 {link.label}
               </FooterLink>
             ))}

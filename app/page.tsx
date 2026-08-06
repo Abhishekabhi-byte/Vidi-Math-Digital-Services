@@ -1,9 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowRight,
   ArrowUpRight,
-  BadgeCheck,
   BriefcaseBusiness,
   CheckCircle2,
   Mail,
@@ -31,10 +29,8 @@ const serviceStrip = [
 ];
 
 const homeImages = {
-  heroMain:
-    "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1400",
-  heroAccent:
-    "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=900",
+  heroSlides: ["/a1.png", "/s3.png"],
+  businessDevelopment: ["/b1.jpeg", "/b2.png", "/b3.jpeg", "/b4.png", "/b5.png", "/b6.png"],
   aboutTop:
     "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1100",
   aboutBottom:
@@ -69,7 +65,7 @@ function SectionKicker({
         light ? "text-white" : "text-[#0076c9]"
       }`}
     >
-      <span className="inline-flex h-3 w-3 rounded-full bg-[#00a651]" />
+      <span className="inline-flex h-3 w-3 rounded-full bg-current" />
       {children}
     </p>
   );
@@ -82,7 +78,7 @@ function MarqueeStrip() {
         {[...serviceStrip, ...serviceStrip, ...serviceStrip].map((item, index) => (
           <span key={`${item}-${index}`} className="inline-flex items-center gap-10">
             {item}
-            <Sparkles size={20} className="text-[#00a651]" />
+            <Sparkles size={20} className="text-white" />
           </span>
         ))}
       </div>
@@ -98,73 +94,32 @@ export default function Home() {
           from { transform: translateX(0); }
           to { transform: translateX(-33.333%); }
         }
+        @keyframes heroSlide {
+          0%, 42% { transform: translateX(0); }
+          50%, 92% { transform: translateX(-50%); }
+          100% { transform: translateX(0); }
+        }
       `}</style>
 
-      <section className="relative">
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8 lg:py-20">
-          <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-            <Reveal>
-              <div>
-                <SectionKicker>Business development</SectionKicker>
-                <h1 className="font-display text-4xl leading-[1.04] text-[#063f73] sm:text-6xl lg:text-[4.6rem]">
-                  Empowering your success with digital expertise.
-                </h1>
-                <p className="mt-6 max-w-xl text-base leading-7 text-text-muted sm:text-lg">
-                  Goals can include revenue growth, expansion to new markets, strategic
-                  partnerships, and more. We help businesses build practical growth strategies for
-                  stronger revenue, wider reach, and lasting partnerships.
-                </p>
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <Link
-                    href="/services"
-                    className="inline-flex items-center gap-2 rounded-full bg-[#0076c9] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#00a651]"
-                  >
-                    Explore More <ArrowRight size={16} />
-                  </Link>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 rounded-full border border-[#0076c9]/20 px-6 py-3 text-sm font-semibold text-[#0076c9] transition hover:border-[#00a651] hover:text-[#00a651]"
-                  >
-                    Contact Us
-                  </Link>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.1}>
-              <div className="relative min-h-[430px] lg:min-h-[540px]">
-                <div className="absolute right-0 top-4 h-[82%] w-[78%] overflow-hidden rounded-[2rem] bg-[#0076c9] shadow-2xl shadow-[#0076c9]/20">
+      <section className="relative overflow-hidden bg-white">
+        <Reveal>
+          <div className="relative aspect-[5219/2297] w-full overflow-hidden">
+            <div className="flex h-full w-[200%] animate-[heroSlide_12s_ease-in-out_infinite]">
+              {homeImages.heroSlides.map((slide, index) => (
+                <div key={slide} className="relative h-full w-1/2 shrink-0">
                   <Image
-                    src={homeImages.heroMain}
-                    alt="Vidi Meth team collaboration"
+                    src={slide}
+                    alt={`Vidi Meth hero slide ${index + 1}`}
                     fill
-                    unoptimized
-                    priority
-                    sizes="(min-width: 1024px) 52vw, 100vw"
-                    className="object-cover"
+                    priority={index === 0}
+                    sizes="100vw"
+                    className="object-contain"
                   />
                 </div>
-                <div className="absolute left-0 top-20 h-56 w-56 overflow-hidden rounded-[1.5rem] border-8 border-[#eef8ff] shadow-xl sm:h-72 sm:w-72">
-                  <Image
-                    src={homeImages.heroAccent}
-                    alt="Digital marketing collaboration"
-                    fill
-                    unoptimized
-                    sizes="280px"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="absolute bottom-8 left-12 rounded-full bg-[#00a651] p-5 shadow-xl shadow-[#00a651]/30">
-                  <BadgeCheck size={42} className="text-white" />
-                </div>
-                <div className="absolute bottom-0 right-8 rounded-2xl bg-white px-6 py-5 shadow-xl">
-                  <p className="font-display text-3xl text-[#0076c9]">5+</p>
-                  <p className="text-sm font-semibold text-text-muted">Business divisions</p>
-                </div>
-              </div>
-            </Reveal>
+              ))}
+            </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       <MarqueeStrip />
@@ -188,10 +143,13 @@ export default function Home() {
               <div className="h-full rounded-2xl bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
                 <div className="relative mb-5 aspect-[16/10] overflow-hidden rounded-xl">
                   <Image
-                    src={homeImages.projects[index % homeImages.projects.length]}
+                    src={
+                      homeImages.businessDevelopment[
+                        index % homeImages.businessDevelopment.length
+                      ]
+                    }
                     alt={strategy.title}
                     fill
-                    unoptimized
                     sizes="(min-width: 768px) 30vw, 100vw"
                     className="object-cover"
                   />
@@ -216,7 +174,7 @@ export default function Home() {
             {growthAreas.map((area, index) => (
               <Reveal key={area.title} delay={index * 0.04}>
                 <div className="rounded-2xl border border-white/15 bg-white/8 p-6 text-center">
-                  <CheckCircle2 className="mx-auto text-[#00a651]" size={34} />
+                  <CheckCircle2 className="mx-auto text-white" size={34} />
                   <h3 className="mt-4 font-display text-2xl">{area.title}</h3>
                   <p className="mt-3 text-sm leading-6 text-white/70">{area.body}</p>
                 </div>
@@ -226,40 +184,70 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+      <section className="bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+        <div className="mx-auto max-w-6xl">
           <Reveal>
-            <div className="relative aspect-video overflow-hidden rounded-[1.5rem] shadow-xl">
-              <Image
-                src="/whychooseus.png"
-                alt="Why choose Vidi Meth"
-                fill
-                sizes="(min-width: 1024px) 44vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <div>
-              <SectionKicker>Why choose us</SectionKicker>
-              <h2 className="font-display text-3xl leading-tight sm:text-5xl">
-                Businesses depend on us for expertise, quality, and service.
+            <div className="mx-auto max-w-4xl text-center">
+              <h2 className="font-display text-4xl leading-tight text-[#0076c9] sm:text-6xl">
+                Why Choose Us
               </h2>
-              <p className="mt-5 text-base leading-7 text-text-muted">
-                We&apos;ve worked with colleges and universities, real estate organisations,
-                companies, designers, architects, government agencies, and business owners across a
-                range of industries to transform the way they work.
+              <p className="mt-5 text-base leading-7 text-text-muted sm:text-lg">
+                Businesses depend on us for expertise, quality, and service. We&apos;ve worked
+                across industries to transform the way organisations grow, communicate, and serve
+                their customers.
               </p>
-              <div className="mt-7 grid gap-4 sm:grid-cols-2">
-                {whyChooseUs.map((item) => (
-                  <div key={item.title} className="border-l-2 border-[#0076c9] pl-4">
-                    <h3 className="font-display text-lg text-[#0076c9]">{item.title}</h3>
-                    <p className="mt-1 text-sm leading-6 text-text-muted">{item.body}</p>
-                  </div>
-                ))}
-              </div>
             </div>
           </Reveal>
+
+          <div className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.15fr_0.9fr] lg:items-center">
+            <div className="grid gap-7 lg:text-right">
+              {whyChooseUs.slice(0, 3).map((item, index) => (
+                <Reveal key={item.title} delay={index * 0.04}>
+                  <div className="space-y-3">
+                    <p className="font-mono text-2xl font-bold text-[#0076c9]">
+                      {String(index + 1).padStart(2, "0")}
+                    </p>
+                    <h3 className="font-display text-2xl leading-tight text-[#063f73]">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm leading-7 text-text-muted">{item.body}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal delay={0.08}>
+              <div className="mx-auto w-full max-w-md overflow-hidden rounded-[1.5rem] bg-[#eef8ff] shadow-xl shadow-[#0076c9]/10">
+                <Image
+                  src="/whychooseusvidi.png"
+                  alt="Why choose Vidi Meth"
+                  width={1122}
+                  height={1402}
+                  sizes="(min-width: 1024px) 30vw, 90vw"
+                  className="h-auto w-full object-contain"
+                />
+              </div>
+            </Reveal>
+
+            <div className="grid gap-7">
+              {whyChooseUs.slice(3, 6).map((item, index) => {
+                const number = index + 4;
+                return (
+                  <Reveal key={item.title} delay={number * 0.04}>
+                    <div className="space-y-3">
+                      <p className="font-mono text-2xl font-bold text-[#0076c9]">
+                        {String(number).padStart(2, "0")}
+                      </p>
+                      <h3 className="font-display text-2xl leading-tight text-[#063f73]">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm leading-7 text-text-muted">{item.body}</p>
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -283,7 +271,7 @@ export default function Home() {
                 </ul>
                 <Link
                   href="/contact"
-                  className="mt-8 inline-flex items-center rounded-full bg-[#0076c9] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#00a651]"
+                  className="mt-8 inline-flex items-center rounded-full bg-[#0076c9] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#063f73]"
                 >
                   Contact Us
                 </Link>
@@ -292,10 +280,9 @@ export default function Home() {
             <Reveal delay={0.08}>
               <div className="relative aspect-[16/11] overflow-hidden rounded-[1.5rem] shadow-xl">
                 <Image
-                  src={homeImages.aboutTop}
-                  alt="Students reviewing digital plans"
+                  src="/whatwedo.png"
+                  alt="What we do at Vidi Meth"
                   fill
-                  unoptimized
                   sizes="(min-width: 1024px) 52vw, 100vw"
                   className="object-cover"
                 />
@@ -390,23 +377,22 @@ export default function Home() {
               </p>
               <div className="mt-8 space-y-4 text-sm">
                 <a href={`mailto:${company.email}`} className="flex items-center gap-3">
-                  <Mail size={18} className="text-[#00a651]" /> {company.email}
+                  <Mail size={18} className="text-white" /> {company.email}
                 </a>
                 <span className="flex items-center gap-3">
-                  <Phone size={18} className="text-[#00a651]" /> {company.hours}
+                  <Phone size={18} className="text-white" /> {company.hours}
                 </span>
               </div>
             </div>
           </Reveal>
           <Reveal delay={0.08}>
-            <div className="relative min-h-[360px] overflow-hidden rounded-2xl">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
               <Image
-                src={homeImages.contact}
+                src="/contactuslandscape.png"
                 alt="Contact Vidi Meth"
                 fill
-                unoptimized
                 sizes="(min-width: 1024px) 42vw, 100vw"
-                className="object-cover"
+                className="object-cover object-center"
               />
             </div>
           </Reveal>
@@ -432,7 +418,7 @@ export default function Home() {
                   href={`https://${link}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-full border border-[#0076c9]/15 px-5 py-3 text-sm font-semibold text-[#0076c9] transition hover:border-[#00a651] hover:bg-[#00a651] hover:text-white"
+                  className="rounded-full border border-[#0076c9]/15 px-5 py-3 text-sm font-semibold text-[#0076c9] transition hover:border-[#0076c9] hover:bg-[#0076c9] hover:text-white"
                 >
                   {link}
                 </a>

@@ -18,8 +18,8 @@ function pos(i: number, total: number) {
 function labelLines(name: string) {
   const custom: Record<string, string[]> = {
     VillageMyCity: ["Village", "MyCity"],
-    VmHomeMart: ["VmHome", "Mart"],
-    "VM Academy": ["VM", "Academy"],
+    VMhomeMart: ["VMhome", "Mart"],
+    VMAcademy: ["VM", "Academy"],
   };
 
   return custom[name] ?? [name];

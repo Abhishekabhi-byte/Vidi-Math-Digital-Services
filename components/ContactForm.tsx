@@ -74,7 +74,7 @@ export default function ContactForm() {
                   name="name"
                   type="text"
                   placeholder="Name"
-                  className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm outline-none transition-colors focus:border-gold"
+                  className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm outline-none transition-colors focus:border-teal"
                 />
                 {errors.name && <p className="mt-1 text-xs text-red-600">{errors.name}</p>}
               </div>
@@ -87,7 +87,7 @@ export default function ContactForm() {
                   name="email"
                   type="email"
                   placeholder="E-Mail"
-                  className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm outline-none transition-colors focus:border-gold"
+                  className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm outline-none transition-colors focus:border-teal"
                 />
                 {errors.email && <p className="mt-1 text-xs text-red-600">{errors.email}</p>}
               </div>
@@ -100,7 +100,7 @@ export default function ContactForm() {
                   name="phone"
                   type="tel"
                   placeholder="Phone Number"
-                  className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm outline-none transition-colors focus:border-gold"
+                  className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm outline-none transition-colors focus:border-teal"
                 />
                 {errors.phone && <p className="mt-1 text-xs text-red-600">{errors.phone}</p>}
               </div>
@@ -113,7 +113,7 @@ export default function ContactForm() {
                   name="subject"
                   type="text"
                   placeholder="Subject"
-                  className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm outline-none transition-colors focus:border-gold"
+                  className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm outline-none transition-colors focus:border-teal"
                 />
               </div>
             </div>
@@ -127,7 +127,7 @@ export default function ContactForm() {
                 name="message"
                 rows={5}
                 placeholder="Message Here"
-                className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm outline-none transition-colors focus:border-gold resize-none"
+                className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm outline-none transition-colors focus:border-teal resize-none"
               />
               {errors.message && <p className="mt-1 text-xs text-red-600">{errors.message}</p>}
             </div>

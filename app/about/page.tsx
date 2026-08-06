@@ -18,11 +18,11 @@ const aboutLinks = [
 
 const divisionWriteUps = [
   {
-    name: "VM Academy",
+    name: "VMAcademy",
     url: "www.vmacademys.com",
     paragraphs: [
-      "VM Academy is an online education portal that provides education-related services and products. It helps students find the course and college best suited to them. VM Academy is a college and course selection platform with information for undergraduate (UG) and postgraduate (PG) courses across India. The platform is accessible on desktop and mobile and provides details on career choices, courses, admission criteria, eligibility, exam fees, placement statistics, reviews, scholarships, and latest updates.",
-      "VM Academy also assists aspirants with post-examination guidance, admission-related queries, and real insights for choosing the right institutes. It offers specific information for students interested in UG and PG courses across popular streams including management, engineering, computer applications, medical, dental, pharmacy, paramedical, veterinary science, education, law, hotel management, mass communication, animation, design, architecture, agriculture, arts, commerce, science, vocational education, and aviation.",
+      "VMAcademy is an online education portal that provides education-related services and products. It helps students find the course and college best suited to them. VMAcademy is a college and course selection platform with information for undergraduate (UG) and postgraduate (PG) courses across India. The platform is accessible on desktop and mobile and provides details on career choices, courses, admission criteria, eligibility, exam fees, placement statistics, reviews, scholarships, and latest updates.",
+      "VMAcademy also assists aspirants with post-examination guidance, admission-related queries, and real insights for choosing the right institutes. It offers specific information for students interested in UG and PG courses across popular streams including management, engineering, computer applications, medical, dental, pharmacy, paramedical, veterinary science, education, law, hotel management, mass communication, animation, design, architecture, agriculture, arts, commerce, science, vocational education, and aviation.",
     ],
   },
   {
@@ -41,10 +41,10 @@ const divisionWriteUps = [
     ],
   },
   {
-    name: "LoanVidhi",
+    name: "LOANvidhi",
     url: "www.loanvidhi.com",
     paragraphs: [
-      "LoanVidhi is a service provider for insurance, financial affairs, monetary affairs, and real estate affairs. LoanVidhi offers loan and insurance consulting services, including secured and unsecured loans from various banks, financial planning that helps customers understand future needs, and advisory support in the financial sector.",
+      "LOANvidhi is a service provider for insurance, financial affairs, monetary affairs, and real estate affairs. LOANvidhi offers loan and insurance consulting services, including secured and unsecured loans from various banks, financial planning that helps customers understand future needs, and advisory support in the financial sector.",
       "The aim is to bring innovative ideas and useful technology to transform financial support and make loan and insurance guidance easier to access.",
     ],
   },
@@ -56,6 +56,13 @@ const divisionWriteUps = [
       "The contract of sale is directly between the seller and the buyer, making VMhomeMart a complete online shopping platform for connected buyers and sellers.",
     ],
   },
+];
+
+const aboutStats = [
+  { value: "215+", label: "Happy Clients" },
+  { value: "582", label: "Project Done" },
+  { value: "70+", label: "Awards Won" },
+  { value: "25+", label: "Experience Year" },
 ];
 
 const aboutWhyChooseUs = [
@@ -121,10 +128,10 @@ export default function AboutPage() {
           <p className="eyebrow mb-4">About Vidi Meth</p>
           <div className="max-w-4xl space-y-5 text-sm sm:text-base text-text-muted leading-relaxed">
             <p>
-              {company.name} is established in the online industry to carry on, in India and
-              elsewhere, the business of concept marketing, online marketing, advertising, business
-              management, business administration, office functions, and direct marketing. We work
-              to provide high-quality services and products to every client we serve.
+              To carry on in India or elsewhere the business of concept marketing and online
+              marketing, advertising, business management, business administration, office function,
+              direct marketing, and to provide high quality services and products to clients.
+              {` ${company.name} is an established name in the online industry.`}
             </p>
             <ul className="grid gap-2 sm:grid-cols-2 font-mono text-sm text-ink">
               {aboutLinks.map((link) => (
@@ -225,6 +232,21 @@ export default function AboutPage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 lg:px-8 py-16">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {aboutStats.map((stat, i) => (
+            <Reveal key={stat.label} delay={0.04 * i}>
+              <div className="rounded-2xl border border-line bg-white/70 p-7 text-center shadow-sm">
+                <p className="font-display text-4xl text-teal">{stat.value}</p>
+                <p className="mt-2 font-mono text-xs font-semibold uppercase text-text-muted">
+                  {stat.label}
+                </p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </section>
 

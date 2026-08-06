@@ -20,12 +20,12 @@ export const company = {
 
 export const divisions = [
   {
-    name: "VM Academy",
-    url: "www.vmacademys.com",
+    name: "VMAcademy",
+    url: "vmacademy.in",
     tags: ["Branding", "Development"],
     color: "gold",
     description:
-      "Skill-building and learning programs designed to prepare students and professionals for real careers.",
+      "VMAcademy online education portal that provides education-related services and products. Find the Course and College, that is best for you. VMAcademy is India's leading college and course selection platform with information.",
   },
   {
     name: "VillageMyCity",
@@ -33,31 +33,31 @@ export const divisions = [
     tags: ["Development"],
     color: "teal",
     description:
-      "A civic and community platform connecting towns, villages, and cities with the services they need.",
+      "VillageMyCity is a Real Estate Property Portal in India. anywhere, any time Just One Click to Sell your Items or Products.",
   },
   {
-    name: "Gojobin",
+    name: "GoJobin",
     url: "www.gojobin.com",
     tags: ["Branding", "Development"],
     color: "gold",
     description:
-      "A job-matching platform that connects employers with candidates across India's growing job market.",
+      "Gojobin India's leading Job Site provides you with the best opportunity to find the right job today! Gojobin is India's most innovative and fastest-growing recruitment portal.",
   },
   {
-    name: "LoanVidhi",
+    name: "LOANvidhi",
     url: "www.loanvidhi.com",
     tags: ["Business", "Finance"],
     color: "teal",
     description:
-      "A finance and lending platform that simplifies access to loans for individuals and small businesses.",
+      "LOANvidhi is a service provider of Insurance, Financial affairs, Monetary Affairs, and Real Estate affairs. It is one of the leading financial consultants who deal in loans & Insurance services.",
   },
   {
-    name: "VmHomeMart",
+    name: "VMhomeMart",
     url: "www.vmhomemart.com",
     tags: ["Business", "Finance"],
     color: "gold",
     description:
-      "A real estate and home-essentials marketplace connecting buyers, sellers, and service providers.",
+      "VMhomeMart is the best e-commerce in the fast-growing Indian market. VMhomeMART is a complete online shopping store.",
   },
 ];
 
@@ -131,27 +131,27 @@ export const whyChooseUs = [
 export const services = [
   {
     title: "Insurance Policy",
-    body: "Experience the difference of personalised consultations. Our experts take the time to understand your specific requirements, offering tailored guidance and strategies that align with your goals.",
+    body: "Experience the difference of personalized consultations. Our experts take the time to understand your specific requirements, offering tailored guidance and strategies that align.",
   },
   {
     title: "Quality Support",
-    body: "Committed to excellence, our unwavering dedication ensures quality support. We prioritise satisfaction and consistently deliver beyond expectations with excellence.",
+    body: "Committed to excellence, our unwavering dedication ensures quality support. We prioritize satisfaction, consistently delivering beyond expectations with excellence.",
   },
   {
     title: "Financial Planning Services",
-    body: "Navigate your financial journey confidently with Vidimeth.com. Prioritising financial control, we provide services for effective planning, management, and financial certainty.",
+    body: "Navigate your financial journey confidently with Vidimeth.com. Prioritizing financial control, we provide services for effective planning, management, Financial Certainty.",
   },
   {
     title: "Educational Empowerment",
     body: "Empower yourself with Vidimeth.com's online education platform. Access a wealth of courses, resources, and information to shape your educational path and drive personal growth.",
   },
   {
-    title: "E-Commerce Experiences",
+    title: "e-commerce Experiences",
     body: "Effortlessly navigate online commerce with Vidimeth.com. Our seamless platform simplifies buying and selling, ensuring a user-friendly experience for consumers and businesses alike.",
   },
   {
     title: "Blending Business",
-    body: "Unlock synergy with our blended business ideas and services. We catalyse innovation, fostering seamless collaboration for unparalleled success. Your vision and our expertise create a transformative blend.",
+    body: "Unlock synergy with our blend business ideas services. We catalyze innovation, fostering seamless collaboration for unparalleled success. Your vision, our expertise a transformative blend.",
   },
 ];
 
@@ -166,28 +166,28 @@ export const clients = [
 
 export const faqs = [
   {
-    q: "What does Vidi Meth Digital Services do?",
-    a: "We provide concept marketing, online marketing, advertising, business management, business administration, and direct marketing services to clients in India and elsewhere, alongside a network of five specialised business divisions.",
+    q: "What is Vidimeth.com all about?",
+    a: "Vidimeth.com is a dynamic platform excelling in diverse domains such as online education, job recruitment, financial consulting, and e-commerce. With a steadfast commitment to excellence and innovation, we provide tailored solutions for businesses and individuals. Our versatile presence empowers users to navigate the realms of education, employment, finance, and online commerce with confidence. Whether it's shaping educational journeys, facilitating career growth, offering financial insights, or providing a seamless e-commerce experience, Vidimeth.com is dedicated to fostering success and satisfaction across various sectors, creating a comprehensive and impactful platform for the modern user.",
   },
   {
-    q: "What is Vidi Meth Digital Services (OPC) Private Limited?",
-    a: "We are a One Person Company (OPC) registered in India under CIN U52100JH2017OPC009718, headquartered in Jamshedpur, Jharkhand.",
+    q: "Is Vidimeth.com open to collaborations or partnerships?",
+    a: "Yes. Vidimeth.com is open to meaningful collaborations and partnerships that support innovation, growth, and value creation across education, recruitment, finance, e-commerce, and business services.",
   },
   {
-    q: "What industries do you work with?",
-    a: "We've worked with colleges and universities, real estate organisations, companies, designers, architects, government agencies, and independent business owners across a range of industries.",
+    q: "What is the vision of Vidimeth.com?",
+    a: "Our vision is to build a versatile digital ecosystem that helps individuals and businesses access trusted services, practical opportunities, and reliable support across multiple sectors.",
   },
   {
-    q: "What are your business divisions?",
-    a: "Our network includes VM Academy (education), VillageMyCity (civic development), Gojobin (jobs), LoanVidhi (finance), and VmHomeMart (real estate & home services).",
+    q: "How can I stay updated on Vidimeth.com's latest developments?",
+    a: "You can stay updated by visiting Vidimeth.com and following the connected platforms in our network for new services, announcements, opportunities, and updates.",
   },
   {
-    q: "How can I get in touch?",
-    a: "Email us at info@vidimeth.com or visit our registered office in Sakchi, Jamshedpur. We're available Monday to Saturday, 10:00 AM - 6:00 PM.",
+    q: "Does Vidimeth.com provide educational resources or webinars?",
+    a: "Yes. Through VMAcademy and related initiatives, Vidimeth.com supports education-focused resources, course information, career guidance, and learning opportunities.",
   },
   {
-    q: "Do you offer personalised service?",
-    a: "Yes - every engagement includes one-on-one service, open communication, and a dedicated point of contact throughout.",
+    q: "Where can I see your work?",
+    a: "You can explore our work through our connected platforms: VMAcademy, VillageMyCity, GoJobin, LOANvidhi, and VMhomeMart.",
   },
 ];
 

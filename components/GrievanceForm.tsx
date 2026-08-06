@@ -183,7 +183,7 @@ function Field({
         name={name}
         type={type}
         placeholder={placeholder}
-        className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm outline-none transition-colors focus:border-gold"
+        className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm outline-none transition-colors focus:border-teal"
       />
       {error && <p className="mt-1 text-xs text-red-600">{error}</p>}
     </div>

@@ -19,10 +19,10 @@ export default function ServicesPage() {
           <Reveal>
             <p className="eyebrow mb-4 justify-center flex">Our Services</p>
             <h1 className="font-display text-4xl sm:text-5xl text-ink leading-tight text-balance">
-              We help your business.
+              We help your Business!
             </h1>
             <p className="mt-6 text-lg text-text-muted leading-relaxed">
-              Elevating your business success: we are your catalyst for growth and innovation.
+              Elevating Your Business Success: We&apos;re Your Catalyst for Growth and Innovation!
             </p>
           </Reveal>
         </div>
@@ -34,7 +34,7 @@ export default function ServicesPage() {
             const Icon = icons[i];
             return (
               <Reveal key={s.title} delay={0.05 * i}>
-                <div className="group rounded-2xl border border-line bg-white/60 p-8 flex flex-col sm:flex-row sm:items-center gap-6 transition-colors hover:border-gold/60">
+                <div className="group rounded-2xl border border-line bg-white/60 p-8 flex flex-col sm:flex-row sm:items-center gap-6 transition-colors hover:border-teal/60">
                   <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-paper-dim">
                     <Icon size={24} className="text-teal" />
                   </div>
@@ -65,7 +65,7 @@ export default function ServicesPage() {
                   href={`https://${link}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-between rounded-xl border border-paper/15 bg-paper/5 px-5 py-4 font-mono text-sm hover:border-gold hover:bg-paper/10 transition-colors"
+                  className="flex items-center justify-between rounded-xl border border-paper/15 bg-paper/5 px-5 py-4 font-mono text-sm hover:border-teal hover:bg-paper/10 transition-colors"
                 >
                   {link}
                   <ArrowRight size={16} className="text-teal-soft" />

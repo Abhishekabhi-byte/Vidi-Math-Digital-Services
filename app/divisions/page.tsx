@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import { divisions } from "@/data/content";
+import { company, divisions } from "@/data/content";
 
 export const metadata: Metadata = {
-  title: "Our Divisions — Vidi Meth Digital Services",
+  title: "Our Divisions - Vidi Meth Digital Services",
   description: "Explore the five business divisions in the Vidi Meth network.",
 };
+
+const divisionImages = ["/1.png", "/2.png", "/3.png", "/4.png", "/5.png"];
 
 export default function DivisionsPage() {
   return (
@@ -15,56 +18,65 @@ export default function DivisionsPage() {
       <section className="border-b border-line paper-texture">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 py-20 lg:py-24 text-center">
           <Reveal>
-            <p className="eyebrow mb-4 justify-center flex">Facilitating global business networks</p>
+            <p className="eyebrow mb-4 justify-center flex">
+              <Link href="/" className="hover:text-teal">
+                {company.shortName} Digital Services
+              </Link>
+              <span className="mx-2 text-text-muted">&gt;</span>
+              Our Divisions
+            </p>
             <h1 className="font-display text-4xl sm:text-6xl text-ink leading-tight text-balance">
-              Five divisions. One shared standard of trust.
+              Our Divisions
             </h1>
             <p className="mt-6 text-lg text-text-muted leading-relaxed">
-              We highly value and prioritise the collaborative relationships with our partners.
-              Together, we strive for mutual success and innovative solutions for shared growth.
+              Explore the specialised platforms connected with Vidi Meth Digital Services.
             </p>
           </Reveal>
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 lg:px-8 py-20">
-        <div className="grid gap-6">
-          {divisions.map((d, i) => {
-            const accent = d.color === "gold" ? "text-teal" : "text-teal";
-            const accentBorder = d.color === "gold" ? "hover:border-gold/60" : "hover:border-teal/60";
-            return (
-              <Reveal key={d.name} delay={0.06 * i}>
-                <a
-                  href={`https://${d.url}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={`group flex flex-col md:flex-row md:items-center gap-6 rounded-2xl border border-line bg-white/60 p-8 transition-colors ${accentBorder}`}
-                >
-                  <div className="md:w-56 shrink-0">
-                    <div className="flex flex-wrap gap-1.5 mb-3">
-                      {d.tags.map((t) => (
-                        <span
-                          key={t}
-                          className="rounded-full bg-paper-dim px-2.5 py-1 text-[0.65rem] font-mono uppercase tracking-wide text-text-muted"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                    <h2 className={`font-display text-2xl text-ink`}>{d.name}</h2>
-                    <span className={`mt-1 block font-mono text-xs ${accent}`}>{d.url}</span>
-                  </div>
-                  <p className="flex-1 text-sm text-text-muted leading-relaxed">
-                    {d.description}
-                  </p>
-                  <ArrowUpRight
-                    size={22}
-                    className="shrink-0 text-text-muted transition-all group-hover:text-ink group-hover:translate-x-1 group-hover:-translate-y-1"
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {divisions.map((division, index) => (
+            <Reveal key={division.name} delay={0.06 * index}>
+              <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white/70 shadow-sm transition-colors hover:border-teal/60">
+                <div className="relative aspect-[16/10] bg-paper-dim">
+                  <Image
+                    src={divisionImages[index % divisionImages.length]}
+                    alt={division.name}
+                    fill
+                    sizes="(min-width: 1280px) 30vw, (min-width: 768px) 45vw, 100vw"
+                    className="object-cover"
                   />
-                </a>
-              </Reveal>
-            );
-          })}
+                </div>
+                <div className="flex flex-1 flex-col p-7">
+                  <div className="mb-4 flex flex-wrap gap-1.5">
+                    {division.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full bg-paper-dim px-2.5 py-1 text-[0.65rem] font-mono uppercase tracking-wide text-text-muted"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <h2 className="font-display text-2xl text-ink">{division.name}</h2>
+                  <span className="mt-1 block font-mono text-xs text-teal">{division.url}</span>
+                  <p className="mt-4 flex-1 text-sm text-text-muted leading-relaxed">
+                    {division.description}
+                  </p>
+                  <a
+                    href={`https://${division.url}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-6 inline-flex items-center gap-2 self-start rounded-full bg-ink px-5 py-3 text-sm font-semibold text-paper transition-all hover:bg-teal hover:gap-3"
+                  >
+                    Read More <ArrowUpRight size={16} />
+                  </a>
+                </div>
+              </article>
+            </Reveal>
+          ))}
         </div>
       </section>
 
