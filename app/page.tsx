@@ -62,10 +62,11 @@ const homeImages = {
     "https://images.pexels.com/photos/3184432/pexels-photo-3184432.jpeg?auto=compress&cs=tinysrgb&w=900",
   ],
   projects: [
-    "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=900",
-    "https://images.pexels.com/photos/3183198/pexels-photo-3183198.jpeg?auto=compress&cs=tinysrgb&w=900",
-    "https://images.pexels.com/photos/3184460/pexels-photo-3184460.jpeg?auto=compress&cs=tinysrgb&w=900",
-    "https://images.pexels.com/photos/3184394/pexels-photo-3184394.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "/vmdivision.png",
+    "/villagemycity.png",
+    "/gojobinsection-image.jpeg",
+    "/loanvidhi.png",
+    "/vmhomemart-image.jpeg",
   ],
 };
 
@@ -147,11 +148,12 @@ export default function Home() {
           <div className="mx-auto max-w-4xl text-center">
             <SectionKicker>Business Development</SectionKicker>
             <h2 className="font-display text-3xl leading-tight sm:text-5xl">
-              Goals worth chasing: revenue growth, new markets, and partnerships that last.
+              Goals can include revenue growth, expansion to new markets, strategic partnerships,
+              and more.
             </h2>
             <p className="mt-5 text-base leading-7 text-text-muted">
-              Great business development strategy fulfils your goals. Use these to increase
-              revenue, reach new markets, or build partnerships that carry your business forward.
+              Great business development strategies that will help you fulfill your goals. Make use
+              of these to increase your revenue, reach new markets, or partnerships.
             </p>
           </div>
         </Reveal>
@@ -183,9 +185,9 @@ export default function Home() {
       <section className="bg-[#0076c9] py-16 text-white lg:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <SectionKicker light>We help your business</SectionKicker>
+            <SectionKicker light>We help your Business</SectionKicker>
             <h2 className="font-display text-3xl leading-tight sm:text-5xl">
-              Grow up your business while we take care of the rest.
+              Grow up your business
             </h2>
           </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -344,7 +346,7 @@ export default function Home() {
                   rel="noreferrer"
                   className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
                 >
-                  <div className="relative aspect-[16/10]">
+                  <div className="relative aspect-[1403/1035] bg-[#eef8ff]">
                     <Image
                       src={homeImages.projects[index % homeImages.projects.length]}
                       alt={division.name}

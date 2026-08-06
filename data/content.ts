@@ -63,37 +63,37 @@ export const divisions = [
 
 export const businessDevStrategies = [
   {
-    title: "Use networking opportunities",
-    body: "To search for new opportunities and make the most of your resources.",
+    title: "Use Networking Opportunities",
+    body: "To search for new opportunities and use most of your resources.",
   },
   {
     title: "Establish strong relationships with customers",
-    body: "To preserve trust, credibility, and transparency at every touchpoint.",
+    body: "To preserve trust, credibility, and transparency.",
   },
   {
     title: "Support communities and charities",
-    body: "Partner with other successful businesses and get involved in causes that matter.",
+    body: "To have partnerships with other successful businesses, consider getting involved in charity.",
   },
   {
     title: "Make use of social media",
-    body: "Use Facebook, LinkedIn, and Instagram to promote your product, engage customers, and sell.",
+    body: "You can use Facebook, LinkedIn, and Instagram to promote your product, get in touch with customers, and sell.",
   },
   {
     title: "Implement referral programs",
-    body: "Once your company has an excellent reputation and loyal customers, referral programs pay off.",
+    body: "we support your company has an excellent reputation and loyal customers; you can consider referral programs.",
   },
   {
     title: "Gather a team of professionals",
-    body: "Our team plays an important role in your business success and long-term growth.",
+    body: "Our team plays an important role in your business success and development of your company.",
   },
 ];
 
 export const growthAreas = [
   { title: "Benefits", body: "We offer more to your employees while still growing your business." },
   { title: "Expansion", body: "Look for new ways to innovate and bring your company to the next level." },
-  { title: "Marketing", body: "Advanced marketing strategies that motivate real business growth." },
-  { title: "Talent", body: "Strategies to recruit top candidates in your industry." },
-  { title: "Money", body: "Financial techniques worth focusing on during expansion." },
+  { title: "Marketing", body: "Find advanced marketing strategies to motive business growth." },
+  { title: "Talent", body: "Review strategies to recruit top candidates in your industry." },
+  { title: "Money", body: "Learn what financial techniques to focus on during expansion." },
   { title: "Safeguards", body: "Reduce your risk and protect your growing business." },
 ];
 
