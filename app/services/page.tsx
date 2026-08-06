@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight, BadgeCheck, Briefcase, GraduationCap, LayoutGrid, Landmark, ShieldCheck } from "lucide-react";
+import { BadgeCheck, Briefcase, GraduationCap, LayoutGrid, Landmark, ShieldCheck } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import { services, quickLinks } from "@/data/content";
+import { services } from "@/data/content";
 
 export const metadata: Metadata = {
   title: "Our Services - Vidi Meth Digital Services",
@@ -22,7 +21,8 @@ export default function ServicesPage() {
               We help your Business!
             </h1>
             <p className="mt-6 text-lg text-text-muted leading-relaxed">
-              Elevating Your Business Success: We&apos;re Your Catalyst for Growth and Innovation!
+              &quot;Elevating Your Business Success: We&apos;re Your Catalyst for Growth and
+              Innovation!&quot;
             </p>
           </Reveal>
         </div>
@@ -47,57 +47,6 @@ export default function ServicesPage() {
             );
           })}
         </div>
-      </section>
-
-      <section className="bg-ink text-paper">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20">
-          <Reveal>
-            <p className="eyebrow mb-4 text-teal-soft">Our digital marketing expertise</p>
-            <h2 className="font-display text-3xl sm:text-4xl leading-tight max-w-2xl">
-              Delivered through a live network of five platforms.
-            </h2>
-          </Reveal>
-
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {quickLinks.map((link, i) => (
-              <Reveal key={link} delay={0.05 * i}>
-                <a
-                  href={`https://${link}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center justify-between rounded-xl border border-paper/15 bg-paper/5 px-5 py-4 font-mono text-sm hover:border-teal hover:bg-paper/10 transition-colors"
-                >
-                  {link}
-                  <ArrowRight size={16} className="text-teal-soft" />
-                </a>
-              </Reveal>
-            ))}
-          </div>
-
-          <Reveal delay={0.2}>
-            <Link
-              href="/divisions"
-              className="mt-10 inline-flex items-center gap-2 text-sm font-semibold text-teal-soft hover:gap-3 transition-all"
-            >
-              See what each division does <ArrowRight size={16} />
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-4xl px-6 lg:px-8 py-20 text-center">
-        <Reveal>
-          <h2 className="font-display text-3xl text-ink">Not sure where to start?</h2>
-          <p className="mt-3 text-text-muted">
-            Tell us about your business and we&apos;ll recommend the right combination of services.
-          </p>
-          <Link
-            href="/contact"
-            className="mt-7 inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-semibold text-paper transition-all hover:bg-teal hover:gap-3"
-          >
-            Contact Us <ArrowRight size={16} />
-          </Link>
-        </Reveal>
       </section>
     </div>
   );

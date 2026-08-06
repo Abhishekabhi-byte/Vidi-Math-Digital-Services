@@ -6,6 +6,7 @@ type LegalSection = {
   heading: string;
   paragraphs: string[];
   bullets?: string[];
+  listStyle?: string;
 };
 
 type LegalPageContent = {
@@ -52,11 +53,19 @@ export default function LegalPage({ page }: { page: LegalPageContent }) {
                     <p key={paragraph}>{paragraph}</p>
                   ))}
                   {section.bullets && (
-                    <ul className="list-disc space-y-2 pl-5">
-                      {section.bullets.map((bullet) => (
-                        <li key={bullet}>{bullet}</li>
+                    <div className="space-y-2">
+                      {section.bullets.map((bullet, bulletIndex) => (
+                        <div
+                          key={bullet}
+                          className="grid grid-cols-[2.25rem_minmax(0,1fr)] gap-3 sm:grid-cols-[2.75rem_minmax(0,1fr)]"
+                        >
+                          <span className="text-right font-mono text-sm font-semibold leading-7 tabular-nums text-teal sm:text-base">
+                            {section.listStyle === "number" ? `${bulletIndex + 1}.` : "•"}
+                          </span>
+                          <p>{bullet}</p>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   )}
                 </div>
               </article>

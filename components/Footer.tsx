@@ -3,6 +3,37 @@ import { company, legalLinks, nav, quickLinks, socialLinks } from "@/data/conten
 import Image from "next/image";
 import FooterLink from "@/components/FooterLink";
 
+function SocialIcon({ label }: { label: string }) {
+  const iconClass = "h-4 w-4";
+
+  if (label === "Facebook") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className={iconClass} fill="currentColor">
+        <path d="M14.2 8.4V6.8c0-.8.5-1 1-1h2.1V2.2L14.4 2c-3.2 0-5 2-5 5.5v.9H6.1v4h3.3V22h4.1v-9.6h3.3l.5-4h-3.1Z" />
+      </svg>
+    );
+  }
+
+  if (label === "Twitter") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className={iconClass} fill="none">
+        <path
+          d="M4 4l16 16M20 4 4 20"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeWidth="2.4"
+        />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={iconClass} fill="currentColor">
+      <path d="M6.9 8.9H3.2V21h3.7V8.9ZM5 3a2.1 2.1 0 1 0 0 4.2A2.1 2.1 0 0 0 5 3Zm16 11.3c0-3.5-1.9-5.7-4.8-5.7-1.7 0-2.8.9-3.4 1.8V8.9H9.2V21h3.7v-6c0-1.8.9-3 2.4-3 1.4 0 2 1 2 3v6H21v-6.7Z" />
+    </svg>
+  );
+}
+
 export default function Footer() {
   return (
     <footer className="bg-black text-white">
@@ -100,9 +131,9 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={link.label}
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10 font-mono text-xs font-semibold uppercase text-white transition-colors hover:bg-white hover:text-black"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white hover:text-black"
                 >
-                  {link.mark}
+                  <SocialIcon label={link.label} />
                 </a>
               ))}
             </div>
@@ -110,7 +141,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/15 pt-5 text-xs text-white/55">
-          <p>&copy; {new Date().getFullYear()} {company.name}. All rights reserved.</p>
+          <p>&copy; 2026 Vidi Meth Digital Services (OPC) Private Limited.</p>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             {legalLinks.map((link) => (
               <FooterLink key={link.href} href={link.href} className="hover:text-[#bfefff]">

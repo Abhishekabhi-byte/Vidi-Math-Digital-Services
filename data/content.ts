@@ -21,11 +21,11 @@ export const company = {
 export const divisions = [
   {
     name: "VMAcademy",
-    url: "vmacademy.in",
+    url: "www.vmacademys.com",
     tags: ["Branding", "Development"],
     color: "gold",
     description:
-      "VMAcademy online education portal that provides education-related services and products. Find the Course and College, that is best for you. VMAcademy is India's leading college and course selection platform with information.",
+      "VMAcademy is an online education portal that helps students choose the right course and college for UG and PG studies in India, with details on careers, courses, admissions, eligibility, exams, fees, placements, scholarships and updates.",
   },
   {
     name: "VillageMyCity",
@@ -33,7 +33,7 @@ export const divisions = [
     tags: ["Development"],
     color: "teal",
     description:
-      "VillageMyCity is a Real Estate Property Portal in India. anywhere, any time Just One Click to Sell your Items or Products.",
+      "VillageMyCity is an Indian real estate and classifieds portal for buyers and sellers. It helps individual owners, builders, promoters, agents and dealers post ads, connect online and transact offline.",
   },
   {
     name: "GoJobin",
@@ -41,7 +41,7 @@ export const divisions = [
     tags: ["Branding", "Development"],
     color: "gold",
     description:
-      "Gojobin India's leading Job Site provides you with the best opportunity to find the right job today! Gojobin is India's most innovative and fastest-growing recruitment portal.",
+      "GoJobin is an online recruitment portal for candidates and employers. It supports job seekers, freshers, trained professionals and companies with job posting, staffing, recruiting and employment matching services.",
   },
   {
     name: "LOANvidhi",
@@ -49,7 +49,7 @@ export const divisions = [
     tags: ["Business", "Finance"],
     color: "teal",
     description:
-      "LOANvidhi is a service provider of Insurance, Financial affairs, Monetary Affairs, and Real Estate affairs. It is one of the leading financial consultants who deal in loans & Insurance services.",
+      "LOANvidhi provides insurance, financial affairs, monetary affairs and real estate services. It arranges secured and unsecured loans, supports insurance needs, financial planning and portfolio management with innovative financial solutions.",
   },
   {
     name: "VMhomeMart",
@@ -57,7 +57,7 @@ export const divisions = [
     tags: ["Business", "Finance"],
     color: "gold",
     description:
-      "VMhomeMart is the best e-commerce in the fast-growing Indian market. VMhomeMART is a complete online shopping store.",
+      "VMhomeMart is an e-commerce marketplace for electronics, fashion, kitchen items and more. It allows users to offer, sell and buy products in different pricing formats and locations through a complete online shopping store.",
   },
 ];
 
@@ -130,11 +130,11 @@ export const whyChooseUs = [
 
 export const services = [
   {
-    title: "Insurance Policy",
+    title: "Insurance Policy:",
     body: "Experience the difference of personalized consultations. Our experts take the time to understand your specific requirements, offering tailored guidance and strategies that align.",
   },
   {
-    title: "Quality Support",
+    title: "Quality Support:",
     body: "Committed to excellence, our unwavering dedication ensures quality support. We prioritize satisfaction, consistently delivering beyond expectations with excellence.",
   },
   {
@@ -150,7 +150,7 @@ export const services = [
     body: "Effortlessly navigate online commerce with Vidimeth.com. Our seamless platform simplifies buying and selling, ensuring a user-friendly experience for consumers and businesses alike.",
   },
   {
-    title: "Blending Business",
+    title: "Blending Business:",
     body: "Unlock synergy with our blend business ideas services. We catalyze innovation, fostering seamless collaboration for unparalleled success. Your vision, our expertise a transformative blend.",
   },
 ];
@@ -409,10 +409,21 @@ export const legalPages = {
       {
         heading: "Disclaimer",
         paragraphs: [
-          "The user expressly agrees that use of the website is at the user's sole risk. The website, service, content, user account, and any third-party content are provided by Vidi Meth Digital Services (OPC) Private Limited on an as-is and as-available basis without any representation or warranty of any kind, express, implied, statutory, or otherwise.",
-          "Without prejudice to the foregoing, Vidi Meth Digital Services (OPC) Private Limited does not warrant that the website or services will be uninterrupted, timely, secure, or error-free; that the website will be constantly available or available at all; that information on the website is complete, true, accurate, or non-misleading; or that any errors or defects will be corrected.",
-          "No advice or information, whether oral or written, obtained from Vidi Meth Digital Services (OPC) Private Limited, through the website, or from use of the services shall create any warranty not expressly stated in these Terms of Use.",
-          "To the maximum extent permitted by applicable law, Vidi Meth Digital Services (OPC) Private Limited shall not be liable in any way for the contents of the website, unauthorised use of your account or account information, delay or inability to use the website, failure to provide functionality, or any information, software, products, services, and related graphics obtained through the website or otherwise arising out of use of the website, whether based on contract, tort, negligence, or strict liability.",
+          "The User expressly agree that the use of the website is at the user's sole risk. The Website, service, content, user account and any third party content are provided by Vidi Meth Digital Services OPC Private Limited on an \"as is\" and \"as available\" basis without any representation or warranty of any kind, express, implied, statutory or otherwise including the implied warranties of title, non-infringement, accuracy, suitability, reliability, timelines, completeness, safety, performance, merchantability or fitness for a particular purpose permitted by applicable Indian law. Without prejudice to the forgoing paragraph, Vidi Meth Digital Services OPC Private Limited does not warrant that",
+        ],
+        bullets: [
+          "The website or the services will be uninterrupted, timely, secure or error-free,",
+          "This Website will be constantly available, or available at all;",
+          "The information on this Website is complete, true, accurate or non-misleading,",
+          "Any errors or defects in the website or services will be corrected.",
+        ],
+        listStyle: "number",
+      },
+      {
+        heading: "No Warranty",
+        paragraphs: [
+          "No advice or information, whether oral or written, obtained by you from Vidi Meth Digital Services OPC Private Limited or through the website / content or from use of the services shall create any warranty not expressly stated in these Terms of Use",
+          "You expressly understand and agree that, to the maximum extent permitted by applicable law Vidi Meth Digital Services OPC Private Limited will not be liable to You in any way or in relation to the Contents of, or unauthorised use of your account or account information in connection with the Website or any services, either with or without your knowledge. Vidi Meth Digital Services OPC Private Limited does not warrant that this site; nor makes any representations regarding the quality, accuracy or completeness of any data, information, Contents, materials or services included on or otherwise made available to You through the Website; their servers; or electronic communication sent from Us are free of viruses or other harmful components. Vidi Meth Digital Services OPC Private Limited shall not be responsible for the delay, or inability to use the website or related functionalities, the provision of or failure to provide functionalities, or for any information, software, products, functionalities and related graphics obtained through the website or otherwise arising out of the use of website, whether based on contract, tort, negligence, strict liability.",
         ],
       },
     ],

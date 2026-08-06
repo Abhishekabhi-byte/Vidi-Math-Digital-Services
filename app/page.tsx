@@ -329,7 +329,7 @@ export default function Home() {
             <div className="max-w-3xl">
               <SectionKicker>Facilitating global business networks</SectionKicker>
               <h2 className="font-display text-3xl leading-tight sm:text-5xl">
-                Five divisions. One shared standard of trust.
+                Connected divisions. One shared standard of trust.
               </h2>
               <p className="mt-5 text-base leading-7 text-text-muted">
                 We highly value and prioritise the collaborative relationships with our partners.

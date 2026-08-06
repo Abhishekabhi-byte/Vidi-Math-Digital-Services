@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Building2, Target, Compass, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import { company, clients } from "@/data/content";
+import { company } from "@/data/content";
 
 export const metadata: Metadata = {
   title: "About Us - Vidi Meth Digital Services",
@@ -167,7 +167,7 @@ export default function AboutPage() {
           {
             icon: Compass,
             title: "How we operate",
-            body: "Through a parent company and five specialised divisions spanning education, civic development, jobs, finance, and real estate.",
+            body: "Through a parent company and specialised divisions spanning education, civic development, jobs, finance, commerce, and more.",
           },
         ].map((item, i) => (
           <Reveal key={item.title} delay={0.06 * i}>
@@ -250,44 +250,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 lg:px-8 py-20">
-        <Reveal>
-          <p className="eyebrow mb-4">Who we&apos;ve worked with</p>
-          <h2 className="font-display text-3xl sm:text-4xl text-ink leading-tight max-w-2xl">
-            Across industries, one standard of service.
-          </h2>
-        </Reveal>
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {clients.map((c, i) => (
-            <Reveal key={c} delay={0.04 * i}>
-              <div className="rounded-xl border border-line bg-paper-dim/50 px-5 py-4 text-sm font-medium text-ink">
-                {c}
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      <section className="border-t border-line">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16">
-          <Reveal>
-            <div className="rounded-2xl border border-line bg-paper-dim/50 p-8 font-mono text-sm text-text-muted grid sm:grid-cols-3 gap-6">
-              <div>
-                <p className="eyebrow mb-2">CIN</p>
-                <p className="text-ink">{company.registration.cin}</p>
-              </div>
-              <div>
-                <p className="eyebrow mb-2">GSTIN</p>
-                <p className="text-ink">{company.registration.gstin}</p>
-              </div>
-              <div>
-                <p className="eyebrow mb-2">PAN</p>
-                <p className="text-ink">{company.registration.pan}</p>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
     </div>
   );
 }

@@ -7,10 +7,16 @@ import { company, divisions } from "@/data/content";
 
 export const metadata: Metadata = {
   title: "Our Divisions - Vidi Meth Digital Services",
-  description: "Explore the five business divisions in the Vidi Meth network.",
+  description: "Explore the business divisions in the Vidi Meth network.",
 };
 
-const divisionImages = ["/1.png", "/2.png", "/3.png", "/4.png", "/5.png"];
+const divisionImages = [
+  "/vmdivision.png",
+  "/villagemycity.png",
+  "/gojobinsection-image.jpeg",
+  "/loanvidhi.png",
+  "/vmhomemart-image.jpeg",
+];
 
 export default function DivisionsPage() {
   return (
@@ -40,13 +46,13 @@ export default function DivisionsPage() {
           {divisions.map((division, index) => (
             <Reveal key={division.name} delay={0.06 * index}>
               <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white/70 shadow-sm transition-colors hover:border-teal/60">
-                <div className="relative aspect-[16/10] bg-paper-dim">
+                <div className="relative aspect-[4/3] bg-paper-dim">
                   <Image
                     src={divisionImages[index % divisionImages.length]}
                     alt={division.name}
                     fill
                     sizes="(min-width: 1280px) 30vw, (min-width: 768px) 45vw, 100vw"
-                    className="object-cover"
+                    className="object-cover object-top"
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-7">

@@ -41,7 +41,7 @@ export default function NetworkOrbit({
       viewBox="0 0 600 600"
       className={className ?? (compact ? "w-full max-w-xl" : "w-full max-w-2xl")}
       role="img"
-      aria-label="Vidi Meth at the centre of its five business divisions"
+      aria-label="Vidi Meth at the centre of its business divisions"
     >
       <motion.circle
         cx={CX}

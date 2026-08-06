@@ -7,7 +7,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 export const metadata: Metadata = {
   title: "Vidi Meth Digital Services (OPC) Pvt. Ltd.",
   description:
-    "Concept marketing, online marketing, advertising, and business management - Vidi Meth Digital Services and its network of five business divisions.",
+    "Concept marketing, online marketing, advertising, and business management - Vidi Meth Digital Services and its growing network of business divisions.",
 };
 
 export default function RootLayout({
