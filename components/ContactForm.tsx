@@ -4,32 +4,63 @@ import { useState, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Send, CheckCircle2 } from "lucide-react";
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5000";
+const CONTACT_ENDPOINT = `${API_BASE_URL.replace(/\/$/, "")}/api/vidimeth/contact-us`;
+
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "sent">("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitError, setSubmitError] = useState("");
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = new FormData(e.currentTarget);
+    const formElement = e.currentTarget;
+    const form = new FormData(formElement);
     const name = String(form.get("name") || "").trim();
     const email = String(form.get("email") || "").trim();
     const phone = String(form.get("phone") || "").trim();
+    const subject = String(form.get("subject") || "").trim();
     const message = String(form.get("message") || "").trim();
 
     const nextErrors: Record<string, string> = {};
     if (!name) nextErrors.name = "Please enter your name.";
     if (!/^\S+@\S+\.\S+$/.test(email)) nextErrors.email = "Please enter a valid email.";
     if (!phone) nextErrors.phone = "Please enter your phone number.";
+    if (!subject) nextErrors.subject = "Please enter a subject.";
     if (!message) nextErrors.message = "Please add a short message.";
 
     setErrors(nextErrors);
+    setSubmitError("");
     if (Object.keys(nextErrors).length > 0) return;
 
     setStatus("submitting");
-    window.setTimeout(() => {
+    try {
+      const response = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          phoneNumber: phone,
+          subject,
+          message,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Unable to submit contact enquiry.");
+      }
+
       setStatus("sent");
-      e.currentTarget?.reset();
-    }, 900);
+      formElement.reset();
+    } catch {
+      setSubmitError(
+        "Sorry, your enquiry could not be submitted right now. Please try again in a moment."
+      );
+      setStatus("idle");
+    }
   }
 
   return (
@@ -115,6 +146,7 @@ export default function ContactForm() {
                   placeholder="Subject"
                   className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm outline-none transition-colors focus:border-teal"
                 />
+                {errors.subject && <p className="mt-1 text-xs text-red-600">{errors.subject}</p>}
               </div>
             </div>
 
@@ -131,6 +163,8 @@ export default function ContactForm() {
               />
               {errors.message && <p className="mt-1 text-xs text-red-600">{errors.message}</p>}
             </div>
+
+            {submitError && <p className="text-sm text-red-600">{submitError}</p>}
 
             <button
               type="submit"
