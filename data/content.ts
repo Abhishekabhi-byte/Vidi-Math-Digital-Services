@@ -99,32 +99,32 @@ export const growthAreas = [
 
 export const whyChooseUs = [
   {
-    title: "We make it personal",
-    body: "When you work with us, you can count on personalised, one-on-one service every step of the way.",
+    title: "We Make It Personal",
+    body: "When you work with us, you can count on personalized, one-on-one service every step of the way.",
   },
   {
-    title: "We innovate for you",
-    body: "We're a team of dreamers, thinkers, and creators, always building for what's next.",
+    title: "We Innovate for You",
+    body: "We're a team of dreamers, thinkers and creators.",
   },
   {
-    title: "Leaders trust us",
-    body: "We're proud of the company we keep and the reputations we help build.",
+    title: "Leaders Trust Us",
+    body: "We're proud of the company we keep.",
   },
   {
-    title: "Our reputation",
-    body: "Within the industry, our reputation is impeccable - earned client by client.",
+    title: "Our Reputation",
+    body: "Within the Industry is impeccable.",
   },
   {
-    title: "Communication & responsiveness",
-    body: "Known for open communication around the clock and a high level of responsiveness.",
+    title: "Communication & Responsiveness",
+    body: "We are known for our proven ability to maintain open communication around the clock and a high level of responsiveness to our clients.",
   },
   {
-    title: "Social media fluency",
-    body: "We embrace the ever-changing world of technology to serve clients personally and efficiently.",
+    title: "Social Media",
+    body: "Facebook, Twitter, LinkedIn ... Technology has changed the way we live, play, work, communicate, shop and advertise. We embrace the ever-changing world of technology and are always seeking the best applications to serve our clients personally and efficiently.",
   },
   {
     title: "Commitment",
-    body: "We are trusted to fulfil promises and take care of our clients' concerns, every time.",
+    body: "Commitment is a term that we honour. We are trusted to fulfil promises and take care of our clients' concerns. We're the trusted partner that takes a proactive approach to your technology. We're the fellow small business owner that understand your day-to-day needs. We're the built-in technology support staff that's always there when you need us. We Stand by Our Values. Our Clients Are Happy.",
   },
 ];
 

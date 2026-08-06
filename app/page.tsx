@@ -11,7 +11,6 @@ import {
 import Reveal from "@/components/Reveal";
 import {
   businessDevStrategies,
-  clients,
   company,
   divisions,
   growthAreas,
@@ -26,6 +25,24 @@ const serviceStrip = [
   "Business Management",
   "Direct Marketing",
   "Digital Solutions",
+];
+
+const testimonials = [
+  {
+    name: "Laxmi Mahato",
+    quote:
+      "Exceptional business development insights. Your team's dedication to fostering opportunities has been a game-changer for our company.",
+  },
+  {
+    name: "Manab Kumar",
+    quote:
+      "Remarkable impact! Your innovative financial planning and business development strategies transformed our path, leading to sustained growth.",
+  },
+  {
+    name: "Nisha Sharma",
+    quote:
+      "Business development strategies exceeded expectations, driving growth and ensuring sustained success. Truly an impactful partnership.",
+  },
 ];
 
 const homeImages = {
@@ -193,25 +210,29 @@ export default function Home() {
                 Why Choose Us
               </h2>
               <p className="mt-5 text-base leading-7 text-text-muted sm:text-lg">
-                Businesses depend on us for expertise, quality, and service. We&apos;ve worked
-                across industries to transform the way organisations grow, communicate, and serve
-                their customers.
+                Businesses have come to depend on us for our expertise, quality, and customer
+                service.
+              </p>
+              <p className="mt-4 text-base leading-7 text-text-muted sm:text-lg">
+                We&apos;ve worked with college/university, real estate organisation, company,
+                designers, architects, government agencies and business owners from a range of
+                industries to transform the way they work.
               </p>
             </div>
           </Reveal>
 
-          <div className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.15fr_0.9fr] lg:items-center">
-            <div className="grid gap-7 lg:text-right">
-              {whyChooseUs.slice(0, 3).map((item, index) => (
+          <div className="mt-10 grid gap-8 lg:grid-cols-[0.95fr_1.1fr_0.95fr] lg:items-start">
+            <div className="grid gap-5 lg:text-right">
+              {whyChooseUs.slice(0, 4).map((item, index) => (
                 <Reveal key={item.title} delay={index * 0.04}>
-                  <div className="space-y-3">
-                    <p className="font-mono text-2xl font-bold text-[#0076c9]">
+                  <div className="space-y-2">
+                    <p className="font-mono text-xl font-bold text-[#0076c9]">
                       {String(index + 1).padStart(2, "0")}
                     </p>
-                    <h3 className="font-display text-2xl leading-tight text-[#063f73]">
+                    <h3 className="font-display text-xl leading-tight text-[#063f73]">
                       {item.title}
                     </h3>
-                    <p className="text-sm leading-7 text-text-muted">{item.body}</p>
+                    <p className="text-sm leading-6 text-text-muted">{item.body}</p>
                   </div>
                 </Reveal>
               ))}
@@ -230,19 +251,19 @@ export default function Home() {
               </div>
             </Reveal>
 
-            <div className="grid gap-7">
-              {whyChooseUs.slice(3, 6).map((item, index) => {
-                const number = index + 4;
+            <div className="grid gap-5">
+              {whyChooseUs.slice(4, 7).map((item, index) => {
+                const number = index + 5;
                 return (
                   <Reveal key={item.title} delay={number * 0.04}>
-                    <div className="space-y-3">
-                      <p className="font-mono text-2xl font-bold text-[#0076c9]">
+                    <div className="space-y-2">
+                      <p className="font-mono text-xl font-bold text-[#0076c9]">
                         {String(number).padStart(2, "0")}
                       </p>
-                      <h3 className="font-display text-2xl leading-tight text-[#063f73]">
+                      <h3 className="font-display text-xl leading-tight text-[#063f73]">
                         {item.title}
                       </h3>
-                      <p className="text-sm leading-7 text-text-muted">{item.body}</p>
+                      <p className="text-sm leading-6 text-text-muted">{item.body}</p>
                     </div>
                   </Reveal>
                 );
@@ -258,12 +279,19 @@ export default function Home() {
             <Reveal>
               <div>
                 <SectionKicker>What we do</SectionKicker>
-                <h2 className="font-display text-3xl leading-tight sm:text-5xl">
-                  One-stop digital marketing solutions for every business.
-                </h2>
-                <p className="mt-5 text-base leading-7 text-text-muted">{company.mission}</p>
+                {/* <h2 className="font-display text-3xl leading-tight sm:text-5xl">
+                  What We Do
+                </h2> */}
                 <p className="mt-5 text-base leading-7 text-text-muted">
-                  Our digital marketing expertise includes:
+                  To carry on in India or elsewhere the business of concept marketing and online
+                  marketing, advertising, business management, business administration, office
+                  function, direct marketing and to provide high quality of services and products to
+                  clients.
+                </p>
+                <p className="mt-5 text-base leading-7 text-text-muted">
+                  Our Services: We provide master planning for you. Our aim is to provide one stop
+                  effective digital marketing solutions for all businesses. Our digital marketing
+                  expertise includes:
                 </p>
                 <ul className="mt-4 list-disc space-y-1 pl-5 text-sm text-text-muted">
                   {quickLinks.map((link) => (
@@ -314,7 +342,7 @@ export default function Home() {
                   href={`https://${division.url}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="group block overflow-hidden rounded-2xl bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
                 >
                   <div className="relative aspect-[16/10]">
                     <Image
@@ -326,9 +354,11 @@ export default function Home() {
                       className="object-cover"
                     />
                   </div>
-                  <div className="p-6">
+                  <div className="flex flex-1 flex-col p-6">
                     <h3 className="font-display text-3xl">{division.name}</h3>
-                    <p className="mt-3 text-sm leading-6 text-text-muted">{division.description}</p>
+                    <p className="mt-3 flex-1 text-sm leading-6 text-text-muted">
+                      {division.description}
+                    </p>
                     <span className="mt-5 inline-flex items-center gap-2 font-mono text-sm text-[#0076c9]">
                       {division.url} <ArrowUpRight size={15} />
                     </span>
@@ -348,17 +378,16 @@ export default function Home() {
           </h2>
         </Reveal>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {clients.slice(0, 3).map((client, index) => (
-            <Reveal key={client} delay={index * 0.05}>
+          {testimonials.map((testimonial, index) => (
+            <Reveal key={testimonial.name} delay={index * 0.05}>
               <div className="h-full rounded-2xl bg-[#f3f7fb] p-8 text-center">
                 <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-slate-300 text-white">
                   <BriefcaseBusiness size={34} />
                 </div>
-                <h3 className="mt-5 font-display text-xl text-[#0076c9]">{client}</h3>
                 <p className="mt-4 text-sm leading-6 text-text-muted">
-                  Businesses trust Vidi Meth for practical support, responsive communication, and
-                  strategies built around real growth.
+                  {testimonial.quote}
                 </p>
+                <h3 className="mt-5 font-display text-xl text-[#0076c9]">{testimonial.name}</h3>
               </div>
             </Reveal>
           ))}
